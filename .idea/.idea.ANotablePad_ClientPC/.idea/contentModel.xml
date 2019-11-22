@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Lunox\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Lunox\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ANotablePad_ClientPC.744624529.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Lunox\Documents\Documents\Unity 네트워크 프로그래밍\Unity 4.5.1\04c\ANotablePad_ClientPC" t="IncludeRecursive">
+      <e p="ANotablePad_ClientPC.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="FreeDraw" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Drawable.cs" t="Include" />
+            <e p="DrawingSettings.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
