@@ -13,7 +13,8 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private ApplicationManager _applicationManager;
 
     public int bufferSize = 1024;
-    private readonly char _delimiter = '|';
+    private char _delimiter;
+    private char _serverCommand;
 
 
     private byte[] _receiveBuffer;
@@ -37,6 +38,8 @@ public class NetworkManager : MonoBehaviour
     void Start()
     {
         _tcpManager = gameObject.AddComponent<TcpManager>();
+        _delimiter = _applicationManager.GetDelimiter();
+        _serverCommand = _applicationManager.GetServerCommand();
     }
 
     // Update is called once per frame
@@ -70,13 +73,13 @@ public class NetworkManager : MonoBehaviour
 
         if (TcpConnection(ip, port))
         {
-            Send("@Host-PC");
+            Send(_serverCommand + "Host-PC");
             var returnData = new byte[64];
             var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
             if (recvSize > 0)
             {
                 var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
-                if (msg.Equals("@CONNECTION"))
+                if (msg.Equals(_serverCommand + "CONNECTION"))
                 {
                     _state = State.DRAW;
                     _applicationManager.ChangeView("draw");
@@ -136,10 +139,6 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
-    public char GetDelimiter()
-    {
-        return _delimiter;
-    }
 
     public void OnEventHandling(NetEventState state)
     {

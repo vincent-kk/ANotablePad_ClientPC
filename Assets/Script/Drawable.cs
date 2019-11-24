@@ -18,7 +18,7 @@ namespace FreeDraw
         private bool _nowDrawing;
 
         // PEN COLOUR
-        public static Color Pen_Colour = Color.red; // Change these to change the default drawing settings
+        public static Color Pen_Colour = Color.black; // Change these to change the default drawing settings
 
         // PEN WIDTH (actually, it's a radius, in pixels)
         public static int Pen_Width = 3;
@@ -137,15 +137,6 @@ namespace FreeDraw
             // PenBrush is the NAME of the method we want to set as our current brush
             current_brush = PenBrush;
         }
-//////////////////////////////////////////////////////////////////////////////
-
-
-        // This is where the magic happens.
-        // Detects when user is left clicking, which then call the appropriate function
-        void Update()
-        {
-        }
-
 
         // Set the colour of pixels in a straight line from start_point all the way to end_point, to ensure everything inbetween is coloured
         public void ColourBetween(Vector2 start_point, Vector2 end_point, int width, Color color)
@@ -292,7 +283,6 @@ namespace FreeDraw
         {
             no_drawing_on_current_drag = true;
         }
-
 
 
         void Awake()

@@ -12,7 +12,9 @@ public class ApplicationManager : MonoBehaviour
     [SerializeField] private DrawingSettings _drawingSettings;
     [SerializeField] private NetworkManager _networkManager;
 
-    private char _delimiter;
+    private readonly char _delimiter = '|';
+    private readonly char _clientCommand = '#';
+    private readonly char _serverCommand = '@';
 
     private readonly Dictionary<string, int> _viewName = new Dictionary<string, int>(4)
     {
@@ -25,7 +27,6 @@ public class ApplicationManager : MonoBehaviour
     private void Start()
     {
         ChangeView("connection");
-        _delimiter = _networkManager.GetDelimiter();
     }
 
     public void ChangeView(string view)
@@ -42,9 +43,21 @@ public class ApplicationManager : MonoBehaviour
         _drawable.SetNewDrawing(start);
     }
 
-    public void ChangeColor(string color)
+    public char GetDelimiter()
     {
+        return _delimiter;
     }
+
+    public char GetClientCommand()
+    {
+        return _clientCommand;
+    }
+
+    public char GetServerCommand()
+    {
+        return _serverCommand;
+    }
+
 
     public void SendCoordinateData(Vector2 data)
     {
@@ -56,21 +69,32 @@ public class ApplicationManager : MonoBehaviour
         var msg = _networkManager.Receive();
         if (msg == null) return;
 
-//        msg = msg.TrimEnd('\0');
+        msg = msg.TrimEnd('\0');
         var tokens = msg.Split(_delimiter);
 
         foreach (var token in tokens)
         {
-            if (token.Contains("\0")) continue;
+            if (token == "") continue;
 
-            if (msg.Contains("@")) ;
-            else if (msg.Contains("#"))
+            if (token.Contains(char.ToString(_serverCommand))) ;
+            else if (token.Contains(char.ToString(_clientCommand)))
             {
-                StringBuilder sb = new StringBuilder(token);
-                sb.Remove(0, 1);
-                var commend = sb.ToString();
-                Console.WriteLine(commend);
-                if (commend == "EOF") _drawable.RemoteRelease();
+//                StringBuilder sb = new StringBuilder(token);
+//                sb.Remove(0, 1);
+//                var commend = sb.ToString();
+                Debug.Log(token);
+                if (token == _clientCommand + "EOL")
+                    _drawable.RemoteRelease();
+                else if (token == _clientCommand + "CC->RED")
+                    _drawingSettings.SetMarkerRed();
+                else if (token == _clientCommand + "CC->BLUE")
+                    _drawingSettings.SetMarkerBlue();
+                else if (token == _clientCommand + "CC->GREEN")
+                    _drawingSettings.SetMarkerGreen();
+                else if (token == _clientCommand + "CC->BLACK")
+                    _drawingSettings.SetMarkerBlack();
+                else if (token == _clientCommand + "CC->ERASE")
+                    _drawingSettings.SetEraser();
             }
             else
             {
