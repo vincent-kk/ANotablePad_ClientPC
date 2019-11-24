@@ -16,6 +16,11 @@ public class ApplicationManager : MonoBehaviour
     private readonly char _clientCommand = '#';
     private readonly char _serverCommand = '@';
 
+
+    private readonly int resolutionX = 1080;
+    private readonly int resolutionY = 1920;
+
+
     private readonly Dictionary<string, int> _viewName = new Dictionary<string, int>(4)
     {
         {"connection", 0},
@@ -95,12 +100,17 @@ public class ApplicationManager : MonoBehaviour
                     _drawingSettings.SetMarkerBlack();
                 else if (token == _clientCommand + "CC->ERASE")
                     _drawingSettings.SetEraser();
+                else if (token == _clientCommand + "BG->CLEAR")
+                    _drawable.ResetCanvas();
             }
             else
             {
                 var pos = token.Split(',');
-                var vec2 = new Vector2(float.Parse(pos[0]), float.Parse(pos[1]));
-                _drawable.ReceiveCoordinateData(vec2);
+                //var vec = new Vector2(float.Parse(pos[0]) * resolutionX, float.Parse(pos[1]) * resolutionY);
+                //FIXME : 상하 240, 좌우 5 정도의 크기차 발생 -> 1920-240*2 이후 240만큼을 보상함
+                //현재는 아주 정확하게 맞지만 하드코딩상태. 여유가 있으면 바꾸자.
+                var vec = new Vector2(float.Parse(pos[0]), float.Parse(pos[1]) - 240);
+                _drawable.ReceiveCoordinateData(vec);
                 _drawable.RemoteDrag();
             }
         }
