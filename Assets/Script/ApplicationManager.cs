@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using FreeDraw;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class ApplicationManager : MonoBehaviour
     [SerializeField] private Drawable _drawable;
     [SerializeField] private DrawingSettings _drawingSettings;
     [SerializeField] private NetworkManager _networkManager;
+
+    private char _delimiter;
 
     private readonly Dictionary<string, int> _viewName = new Dictionary<string, int>(4)
     {
@@ -22,6 +25,7 @@ public class ApplicationManager : MonoBehaviour
     private void Start()
     {
         ChangeView("connection");
+        _delimiter = _networkManager.GetDelimiter();
     }
 
     public void ChangeView(string view)
@@ -47,20 +51,34 @@ public class ApplicationManager : MonoBehaviour
         _networkManager.Send(data.ToString());
     }
 
-    public Vector2 ReceiveCoordinateData()
+    public void ReceiveDrawingData()
     {
         var msg = _networkManager.Receive();
-        if (msg == null) return new Vector2();
-//        if (msg.Contains("@"))
-//        {
-//
-//        }
-//        else
-//        {
-//
-//        }
+        if (msg == null) return;
 
-        Debug.Log(msg);
-        return new Vector2();
+//        msg = msg.TrimEnd('\0');
+        var tokens = msg.Split(_delimiter);
+
+        foreach (var token in tokens)
+        {
+            if (token.Contains("\0")) continue;
+
+            if (msg.Contains("@")) ;
+            else if (msg.Contains("#"))
+            {
+                StringBuilder sb = new StringBuilder(token);
+                sb.Remove(0, 1);
+                var commend = sb.ToString();
+                Console.WriteLine(commend);
+                if (commend == "EOF") _drawable.RemoteRelease();
+            }
+            else
+            {
+                var pos = token.Split(',');
+                var vec2 = new Vector2(float.Parse(pos[0]), float.Parse(pos[1]));
+                _drawable.ReceiveCoordinateData(vec2);
+                _drawable.RemoteDrag();
+            }
+        }
     }
 }

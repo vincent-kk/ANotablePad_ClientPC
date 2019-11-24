@@ -127,16 +127,7 @@ namespace FreeDraw
             previous_drag_position = pixel_pos;
         }
 
-        private void RemoteDraw(Vector2 pixel_pos)
-        {
-            cur_colors = drawable_texture.GetPixels32();
-            if (previous_drag_position == Vector2.zero)
-                MarkPixelsToColour(pixel_pos, Pen_Width, Pen_Colour);
-            else
-                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, Pen_Colour);
-            ApplyMarkedPixelChanges();
-            previous_drag_position = pixel_pos;
-        }
+
 
 
         // Helper method used by UI to set what brush the user wants
@@ -153,10 +144,6 @@ namespace FreeDraw
         // Detects when user is left clicking, which then call the appropriate function
         void Update()
         {
-            if (!_nowDrawing) return;
-
-            _appicationManager.ReceiveCoordinateData();
-
         }
 
 
@@ -277,11 +264,35 @@ namespace FreeDraw
             this._nowDrawing = drawing;
         }
 
-        private void ReceiveCoordinateData(Vector2 data)
+        private void RemoteDraw(Vector2 pixel_pos)
+        {
+            cur_colors = drawable_texture.GetPixels32();
+            if (previous_drag_position == Vector2.zero)
+                MarkPixelsToColour(pixel_pos, Pen_Width, Pen_Colour);
+            else
+                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, Pen_Colour);
+            ApplyMarkedPixelChanges();
+            previous_drag_position = pixel_pos;
+        }
+
+        public void ReceiveCoordinateData(Vector2 data)
         {
             Debug.Log(data.ToString());
             RemoteDraw(data);
+
         }
+
+        public void RemoteRelease()
+        {
+            previous_drag_position = Vector2.zero;
+            no_drawing_on_current_drag = false;
+        }
+
+        public void RemoteDrag()
+        {
+            no_drawing_on_current_drag = true;
+        }
+
 
 
         void Awake()

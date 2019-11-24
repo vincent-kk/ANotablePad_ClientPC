@@ -199,6 +199,10 @@ public class TcpManager : MonoBehaviour
 
         return m_recvQueue.Dequeue(ref buffer, size);
     }
+    public int BlockingReceive(ref byte[] buffer, int size)
+    {
+        return m_socket.Receive(buffer, size, SocketFlags.None);
+    }
 
     // 이벤트 통지함수 등록.
     public void RegisterEventHandler(EventHandler handler)

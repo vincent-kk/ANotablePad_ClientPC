@@ -10,10 +10,10 @@ public class NetworkManager : MonoBehaviour
 {
     [SerializeField] private InputField serverIp = null;
     [SerializeField] private InputField serverPort = null;
-    [SerializeField] private ApplicationManager app;
+    [SerializeField] private ApplicationManager _applicationManager;
 
     public int bufferSize = 1024;
-    private readonly string _delimiter = "|";
+    private readonly char _delimiter = '|';
 
 
     private byte[] _receiveBuffer;
@@ -21,13 +21,14 @@ public class NetworkManager : MonoBehaviour
     private TcpManager _tcpManager = null;
     private Encoding _encode;
 
-    private static ChatState _state = ChatState.HOST_TYPE_SELECT;
+    private static State _state = State.CONNECTION;
 
-    enum ChatState
+    enum State
     {
-        HOST_TYPE_SELECT = 0, // 방 선택.
-        CONNECTION, // 연결.
-        LEAVE, // 나가기.
+        CONNECTION, // 연결 준비
+        MENU, //메뉴 화면
+        ROOM, //방에서 대기중
+        DRAW, //실제로 그리는중
         ERROR, // 오류.
     };
 
@@ -43,12 +44,16 @@ public class NetworkManager : MonoBehaviour
     {
         switch (_state)
         {
-            case ChatState.HOST_TYPE_SELECT:
+            case State.CONNECTION:
                 break;
-            case ChatState.CONNECTION:
-                Receive();
+            case State.MENU:
                 break;
-            case ChatState.LEAVE:
+            case State.ROOM:
+                break;
+            case State.DRAW:
+                _applicationManager.ReceiveDrawingData();
+                break;
+            case State.ERROR:
                 break;
         }
     }
@@ -66,7 +71,25 @@ public class NetworkManager : MonoBehaviour
         if (TcpConnection(ip, port))
         {
             Send("@Host-PC");
-            app.ChangeView("draw");
+            var returnData = new byte[64];
+            var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
+            if (recvSize > 0)
+            {
+                var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
+                if (msg.Equals("@CONNECTION"))
+                {
+                    _state = State.DRAW;
+                    _applicationManager.ChangeView("draw");
+                }
+                else
+                {
+                    ConsoleLogger("Fail To Connect Server");
+                }
+            }
+            else
+            {
+                ConsoleLogger("Fail To Connect Server");
+            }
         }
         else
         {
@@ -76,9 +99,7 @@ public class NetworkManager : MonoBehaviour
 
     private bool TcpConnection(string serverIp, int port)
     {
-        var ret = _tcpManager.Connect(serverIp, port);
-        _state = ret ? ChatState.CONNECTION : ChatState.ERROR;
-        return ret;
+        return _tcpManager.Connect(serverIp, port);
     }
 
     public void Send(string msg)
@@ -96,9 +117,9 @@ public class NetworkManager : MonoBehaviour
         if (recvSize > 0)
         {
             var msg = System.Text.Encoding.UTF8.GetString(returnData);
-            ConsoleLogger(msg);
             return msg;
         }
+
         return null;
     }
 
@@ -113,6 +134,11 @@ public class NetworkManager : MonoBehaviour
         {
             _tcpManager.StopServer();
         }
+    }
+
+    public char GetDelimiter()
+    {
+        return _delimiter;
     }
 
     public void OnEventHandling(NetEventState state)
