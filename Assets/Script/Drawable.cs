@@ -5,20 +5,27 @@ using UnityEngine.EventSystems;
 namespace FreeDraw
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(Collider2D))]  // REQUIRES A COLLIDER2D to function
+    [RequireComponent(typeof(Collider2D))] // REQUIRES A COLLIDER2D to function
     // 1. Attach this to a read/write enabled sprite image
     // 2. Set the drawing_layers  to use in the raycast
     // 3. Attach a 2D collider (like a Box Collider 2D) to this sprite
     // 4. Hold down left mouse to draw on this texture!
     public class Drawable : MonoBehaviour
     {
+        [SerializeField] private ApplicationManager _appicationManager;
+
+        //private bool _nowDrawing;
+        private bool _nowDrawing;
+
         // PEN COLOUR
-        public static Color Pen_Colour = Color.red;     // Change these to change the default drawing settings
+        public static Color Pen_Colour = Color.red; // Change these to change the default drawing settings
+
         // PEN WIDTH (actually, it's a radius, in pixels)
         public static int Pen_Width = 3;
 
 
         public delegate void Brush_Function(Vector2 world_position);
+
         // This is the function called when a left click happens
         // Pass in your own custom one to change the brush type
         // Set the default function in the Awake method
@@ -27,11 +34,13 @@ namespace FreeDraw
         public LayerMask Drawing_Layers;
 
         public bool Reset_Canvas_On_Play = true;
+
         // The colour the canvas is reset to each time
-        public Color Reset_Colour = new Color(0, 0, 0, 0);  // By default, reset the canvas to be transparent
+        public Color Reset_Colour = new Color(0, 0, 0, 0); // By default, reset the canvas to be transparent
 
         // Used to reference THIS specific file without making all methods static
         public static Drawable drawable;
+
         // MUST HAVE READ/WRITE enabled set in the file editor of Unity
         Sprite drawable_sprite;
         Texture2D drawable_texture;
@@ -42,7 +51,6 @@ namespace FreeDraw
         Color32[] cur_colors;
         bool mouse_was_previously_held_down = false;
         bool no_drawing_on_current_drag = false;
-
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -86,18 +94,18 @@ namespace FreeDraw
             // 3. Actually apply the changes we marked earlier
             // Done here to be more efficient
             ApplyMarkedPixelChanges();
-            
+
             // 4. If dragging, update where we were previously
             previous_drag_position = pixel_pos;
         }
 
 
-
-        
         // Default brush type. Has width and colour.
         // Pass in a point in WORLD coordinates
         // Changes the surrounding pixels of the world_point to the static pen_colour
-        public void PenBrush(Vector2 world_point)
+
+        //그림을 그리는 부분
+        private void PenBrush(Vector2 world_point)
         {
             Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
 
@@ -113,9 +121,20 @@ namespace FreeDraw
                 // Colour in a line from where we were on the last update call
                 ColourBetween(previous_drag_position, pixel_pos, Pen_Width, Pen_Colour);
             }
+
             ApplyMarkedPixelChanges();
 
-            //Debug.Log("Dimensions: " + pixelWidth + "," + pixelHeight + ". Units to pixels: " + unitsToPixels + ". Pixel pos: " + pixel_pos);
+            previous_drag_position = pixel_pos;
+        }
+
+        private void RemoteDraw(Vector2 pixel_pos)
+        {
+            cur_colors = drawable_texture.GetPixels32();
+            if (previous_drag_position == Vector2.zero)
+                MarkPixelsToColour(pixel_pos, Pen_Width, Pen_Colour);
+            else
+                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, Pen_Colour);
+            ApplyMarkedPixelChanges();
             previous_drag_position = pixel_pos;
         }
 
@@ -130,51 +149,15 @@ namespace FreeDraw
 //////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
         // This is where the magic happens.
         // Detects when user is left clicking, which then call the appropriate function
         void Update()
         {
-            // Is the user holding down the left mouse button?
-            bool mouse_held_down = Input.GetMouseButton(0);
-            if (mouse_held_down && !no_drawing_on_current_drag)
-            {
-                // Convert mouse coordinates to world coordinates
-                Vector2 mouse_world_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (!_nowDrawing) return;
 
-                // Check if the current mouse position overlaps our image
-                Collider2D hit = Physics2D.OverlapPoint(mouse_world_position, Drawing_Layers.value);
-                if (hit != null && hit.transform != null)
-                {
-                    // We're over the texture we're drawing on!
-                    // Use whatever function the current brush is
-                    current_brush(mouse_world_position);
-                }
+            _appicationManager.ReceiveCoordinateData();
 
-                else
-                {
-                    // We're not over our destination texture
-                    previous_drag_position = Vector2.zero;
-                    if (!mouse_was_previously_held_down)
-                    {
-                        // This is a new drag where the user is left clicking off the canvas
-                        // Ensure no drawing happens until a new drag is started
-                        no_drawing_on_current_drag = true;
-                    }
-                }
-            }
-            // Mouse is released
-            else if (!mouse_held_down)
-            {
-                previous_drag_position = Vector2.zero;
-                no_drawing_on_current_drag = false;
-            }
-            mouse_was_previously_held_down = mouse_held_down;
         }
-
 
 
         // Set the colour of pixels in a straight line from start_point all the way to end_point, to ensure everything inbetween is coloured
@@ -197,20 +180,17 @@ namespace FreeDraw
         }
 
 
-
-
-
         public void MarkPixelsToColour(Vector2 center_pixel, int pen_thickness, Color color_of_pen)
         {
             // Figure out how many pixels we need to colour in each direction (x and y)
-            int center_x = (int)center_pixel.x;
-            int center_y = (int)center_pixel.y;
+            int center_x = (int) center_pixel.x;
+            int center_y = (int) center_pixel.y;
             //int extra_radius = Mathf.Min(0, pen_thickness - 2);
 
             for (int x = center_x - pen_thickness; x <= center_x + pen_thickness; x++)
             {
                 // Check if the X wraps around the image, so we don't draw pixels on the other side of the image
-                if (x >= (int)drawable_sprite.rect.width || x < 0)
+                if (x >= (int) drawable_sprite.rect.width || x < 0)
                     continue;
 
                 for (int y = center_y - pen_thickness; y <= center_y + pen_thickness; y++)
@@ -219,10 +199,11 @@ namespace FreeDraw
                 }
             }
         }
+
         public void MarkPixelToChange(int x, int y, Color color)
         {
             // Need to transform x and y coordinates to flat coordinates of array
-            int array_pos = y * (int)drawable_sprite.rect.width + x;
+            int array_pos = y * (int) drawable_sprite.rect.width + x;
 
             // Check if this is a valid position
             if (array_pos > cur_colors.Length || array_pos < 0)
@@ -230,6 +211,7 @@ namespace FreeDraw
 
             cur_colors[array_pos] = color;
         }
+
         public void ApplyMarkedPixelChanges()
         {
             drawable_texture.SetPixels32(cur_colors);
@@ -243,8 +225,10 @@ namespace FreeDraw
         public void ColourPixels(Vector2 center_pixel, int pen_thickness, Color color_of_pen)
         {
             // Figure out how many pixels we need to colour in each direction (x and y)
-            int center_x = (int)center_pixel.x;
-            int center_y = (int)center_pixel.y;
+            int center_x = (int) center_pixel.x;
+            int center_y = (int) center_pixel.y;
+
+
             //int extra_radius = Mathf.Min(0, pen_thickness - 2);
 
             for (int x = center_x - pen_thickness; x <= center_x + pen_thickness; x++)
@@ -287,19 +271,30 @@ namespace FreeDraw
             drawable_texture.Apply();
         }
 
+        public void SetNewDrawing(bool drawing)
+        {
+            if (_nowDrawing != drawing) ResetCanvas();
+            this._nowDrawing = drawing;
+        }
 
-        
+        private void ReceiveCoordinateData(Vector2 data)
+        {
+            Debug.Log(data.ToString());
+            RemoteDraw(data);
+        }
+
+
         void Awake()
         {
+            _nowDrawing = false;
             drawable = this;
             // DEFAULT BRUSH SET HERE
             current_brush = PenBrush;
 
             drawable_sprite = this.GetComponent<SpriteRenderer>().sprite;
             drawable_texture = drawable_sprite.texture;
-
             // Initialize clean pixels to use
-            clean_colours_array = new Color[(int)drawable_sprite.rect.width * (int)drawable_sprite.rect.height];
+            clean_colours_array = new Color[(int) drawable_sprite.rect.width * (int) drawable_sprite.rect.height];
             for (int x = 0; x < clean_colours_array.Length; x++)
                 clean_colours_array[x] = Reset_Colour;
 
