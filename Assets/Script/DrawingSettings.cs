@@ -11,6 +11,9 @@ namespace FreeDraw
         public static bool isCursorOverUI = false;
         public float Transparency = 1f;
 
+        public int markerSize = 2;
+        public int eraserSize = 20;
+
         // Changing pen settings is easy as changing the static properties Drawable.Pen_Colour and Drawable.Pen_Width
         public void SetMarkerColour(Color new_color)
         {
@@ -40,6 +43,7 @@ namespace FreeDraw
         // Call these these to change the pen settings
         public void SetMarkerRed()
         {
+            SetMarkerWidth(markerSize);
             Color c = Color.red;
             c.a = Transparency;
             SetMarkerColour(c);
@@ -48,6 +52,7 @@ namespace FreeDraw
 
         public void SetMarkerGreen()
         {
+            SetMarkerWidth(markerSize);
             Color c = Color.green;
             c.a = Transparency;
             SetMarkerColour(c);
@@ -56,6 +61,7 @@ namespace FreeDraw
 
         public void SetMarkerBlue()
         {
+            SetMarkerWidth(markerSize);
             Color c = Color.blue;
             c.a = Transparency;
             SetMarkerColour(c);
@@ -64,6 +70,7 @@ namespace FreeDraw
 
         public void SetMarkerBlack()
         {
+            SetMarkerWidth(markerSize);
             Color c = Color.black;
             c.a = Transparency;
             SetMarkerColour(c);
@@ -72,6 +79,7 @@ namespace FreeDraw
 
         public void SetEraser()
         {
+            SetMarkerWidth(eraserSize);
             SetMarkerColour(new Color(255f, 255f, 255f, 1f));
         }
 

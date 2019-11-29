@@ -2324,7 +2324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6180907666118292756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 174.39664, y: 54.700317, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2127732944}
@@ -2343,6 +2343,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transparency: 1
+  markerSize: 2
+  eraserSize: 20
 --- !u!1 &6180907666118292756
 GameObject:
   m_ObjectHideFlags: 0

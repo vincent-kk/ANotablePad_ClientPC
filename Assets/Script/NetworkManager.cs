@@ -71,6 +71,29 @@ public class NetworkManager : MonoBehaviour
         serverIp.text = "";
         serverPort.text = "";
 
+//        if (TcpConnection(ip, port))
+//        {
+//            Send(_serverCommand + "Host-PC");
+//            var returnData = new byte[64];
+//            var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
+//            if (recvSize > 0)
+//            {
+//                var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
+//                if (msg.Equals(_serverCommand + "CONNECTION"))
+//                {
+//                    _applicationManager.ChangeView("draw","draw");
+//                }
+//                else
+//                {
+//                    ConsoleLogger("Fail To Connect Server");
+//                }
+//            }
+//            else
+//            {
+//                ConsoleLogger("Fail To Connect Server");
+//            }
+//        }
+        
         if (TcpConnection(ip, port))
         {
             Send(_serverCommand + "Host-PC");
@@ -78,20 +101,27 @@ public class NetworkManager : MonoBehaviour
             var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
             if (recvSize > 0)
             {
+                TcpDisconnect();
                 var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
-                if (msg.Equals(_serverCommand + "CONNECTION"))
+                port = Convert.ToInt32(msg);
+                ConsoleLogger(ip +":"+port+" Reconnect");
+                if (TcpConnection(ip, port))
                 {
-                    _state = State.DRAW;
-                    _applicationManager.ChangeView("draw");
+                    Send(_serverCommand + "Host-PC");
+                    recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
+                    if (recvSize > 0)
+                    {
+                        msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
+                        if (msg.Equals(_serverCommand + "CONNECTION"))
+                        {
+                            _applicationManager.ChangeView("draw","draw");
+                        }
+                    }
+                    else
+                    {
+                        ConsoleLogger("Fail To Connect Server");
+                    }
                 }
-                else
-                {
-                    ConsoleLogger("Fail To Connect Server");
-                }
-            }
-            else
-            {
-                ConsoleLogger("Fail To Connect Server");
             }
         }
         else
@@ -103,6 +133,11 @@ public class NetworkManager : MonoBehaviour
     private bool TcpConnection(string serverIp, int port)
     {
         return _tcpManager.Connect(serverIp, port);
+    }
+
+    private void TcpDisconnect()
+    {
+        _tcpManager.Disconnect();
     }
 
     public void Send(string msg)
@@ -138,7 +173,28 @@ public class NetworkManager : MonoBehaviour
             _tcpManager.StopServer();
         }
     }
-
+    public void ChangeState(string state)
+    {
+        switch (state)
+        {
+            case "connection":
+                _state = State.CONNECTION;
+                break;
+            case "menu":
+                _state = State.MENU;
+                break;
+            case "room":
+                _state = State.ROOM;
+                break;
+            case "draw":
+                _state = State.DRAW;
+                break;
+            case "error":
+            default:
+                _state = State.ERROR;
+                break;
+        }
+    }
 
     public void OnEventHandling(NetEventState state)
     {
