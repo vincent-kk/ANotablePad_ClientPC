@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e14b0c26-fba9-4dba-b4a0-e9e0effa7348" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/IView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/IView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Item.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Item.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/OverlayManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Room.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/Room.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/ScrollManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/ScrollManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Drawable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Drawable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,16 +37,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/TcpManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Drawable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/OverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CD14385-55E6-4C0E-AEDA-2393D3C9CF4A/97/687155f6/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Drawable.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
       </list>
     </option>
   </component>
@@ -52,6 +62,7 @@
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderScriptEditor.cs" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -77,10 +88,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="21332">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="18308">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="21332" />
+      <option name="pid" value="18308" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -104,6 +115,7 @@
       <workItem from="1575005052966" duration="23000" />
       <workItem from="1575005094969" duration="3734000" />
       <workItem from="1575032105852" duration="1994000" />
+      <workItem from="1575081763294" duration="7287000" />
     </task>
     <servers />
   </component>

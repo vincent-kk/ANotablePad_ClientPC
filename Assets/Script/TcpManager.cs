@@ -311,7 +311,7 @@ public class TcpManager : MonoBehaviour
                 if (recvSize == 0)
                 {
                     // 끊기.
-                    Debug.Log("Disconnect recv from client.");
+                    Debug.Log("Disconnect recv from Server.");
                     Disconnect();
                 }
                 else if (recvSize > 0)

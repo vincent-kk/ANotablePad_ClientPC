@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,9 @@ public class NetworkManager : MonoBehaviour
     private Encoding _encode;
 
     private static State _state = State.CONNECTION;
+
+    private string _serverIp;
+    private int _serverPort;
 
     enum State
     {
@@ -61,12 +65,60 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
+    public void ReconnectToNameServer()
+    {
+        TcpDisconnect();
+        _applicationManager.ChangeView("menu", "menu");
+
+        Thread.Sleep(100);
+        if (TcpConnection(_serverIp, _serverPort))
+        {
+            Send(_serverCommand + "Host-PC");
+            SwitchRoomServer();
+        }
+        else
+        {
+            _applicationManager.ChangeView("menu", "error");
+            ConsoleLogger("Fail To Connect Server");
+        }
+    }
+
+    public void SwitchRoomServer()
+    {
+        var returnData = new byte[64];
+        var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
+        if (recvSize > 0)
+        {
+            TcpDisconnect();
+            var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
+            var port = Convert.ToInt32(msg);
+            ConsoleLogger(_serverIp +":"+port+" Reconnect");
+            if (TcpConnection(_serverIp, port))
+            {
+                Send(_serverCommand + "Host-PC");
+                recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
+                if (recvSize > 0)
+                {
+                    msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
+                    if (msg.Equals(_serverCommand + "CONNECTION"))
+                    {
+                        _applicationManager.ChangeView("draw","draw");
+                    }
+                }
+                else
+                {
+                    ConsoleLogger("Fail To Connect Server");
+                }
+            }
+        }
+    }
+
     public void ConnectToServer()
     {
-        var ip = serverIp.text;
-        var port = Convert.ToInt32(serverPort.text);
+        _serverIp = serverIp.text;
+        _serverPort = Convert.ToInt32(serverPort.text);
 
-        Debug.Log("server : " + ip + " : " + port);
+        Debug.Log("server : " + _serverIp + " : " + _serverPort);
 
         serverIp.text = "";
         serverPort.text = "";
@@ -94,35 +146,36 @@ public class NetworkManager : MonoBehaviour
 //            }
 //        }
         
-        if (TcpConnection(ip, port))
+        if (TcpConnection(_serverIp, _serverPort))
         {
             Send(_serverCommand + "Host-PC");
-            var returnData = new byte[64];
-            var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
-            if (recvSize > 0)
-            {
-                TcpDisconnect();
-                var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
-                port = Convert.ToInt32(msg);
-                ConsoleLogger(ip +":"+port+" Reconnect");
-                if (TcpConnection(ip, port))
-                {
-                    Send(_serverCommand + "Host-PC");
-                    recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
-                    if (recvSize > 0)
-                    {
-                        msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
-                        if (msg.Equals(_serverCommand + "CONNECTION"))
-                        {
-                            _applicationManager.ChangeView("draw","draw");
-                        }
-                    }
-                    else
-                    {
-                        ConsoleLogger("Fail To Connect Server");
-                    }
-                }
-            }
+            SwitchRoomServer();
+//            var returnData = new byte[64];
+//            var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
+//            if (recvSize > 0)
+//            {
+//                TcpDisconnect();
+//                var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
+//                var port = Convert.ToInt32(msg);
+//                ConsoleLogger(_serverIp +":"+port+" Reconnect");
+//                if (TcpConnection(_serverIp, port))
+//                {
+//                    Send(_serverCommand + "Host-PC");
+//                    recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
+//                    if (recvSize > 0)
+//                    {
+//                        msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
+//                        if (msg.Equals(_serverCommand + "CONNECTION"))
+//                        {
+//                            _applicationManager.ChangeView("draw","draw");
+//                        }
+//                    }
+//                    else
+//                    {
+//                        ConsoleLogger("Fail To Connect Server");
+//                    }
+//                }
+//            }
         }
         else
         {

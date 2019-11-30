@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using FreeDraw;
 using UnityEngine;
 
 public class ApplicationManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] views;
+    [SerializeField] private GameObject[] viewObjects;
     [SerializeField] private Drawable _drawable;
     [SerializeField] private DrawingSettings _drawingSettings;
     [SerializeField] private NetworkManager _networkManager;
+    [SerializeField] private ScrollManager _scrollManager;
 
     private readonly char _delimiter = '|';
+    private readonly char _delimiter2 = '%';
     private readonly char _clientCommand = '#';
     private readonly char _serverCommand = '@';
 
@@ -20,6 +23,7 @@ public class ApplicationManager : MonoBehaviour
     private readonly int resolutionX = 1080;
     private readonly int resolutionY = 1920;
 
+    private IView[] views;
 
     private readonly Dictionary<string, int> _viewName = new Dictionary<string, int>(4)
     {
@@ -31,6 +35,9 @@ public class ApplicationManager : MonoBehaviour
 
     private void Start()
     {
+        views = new IView[viewObjects.Length];
+        for (int i = 0; i < viewObjects.Length; i++)
+            views[i] = viewObjects[i].GetComponent<IView>();
         ChangeView("connection", "connection");
     }
 
@@ -38,10 +45,10 @@ public class ApplicationManager : MonoBehaviour
     {
         var target = _viewName[view];
         for (var i = 0; i < views.Length; i++)
-            views[i].SetActive(i == target);
+            views[i].ShowView(i == target);
 
         _networkManager.ChangeState(state);
-        StartDrawing(target == 3);
+//        StartDrawing(target == 3);
     }
 
     private void StartDrawing(bool start)
@@ -82,12 +89,13 @@ public class ApplicationManager : MonoBehaviour
         {
             if (token == "") continue;
 
-            if (token.Contains(char.ToString(_serverCommand))) ;
+            if (token.Contains(char.ToString(_serverCommand)))
+            {
+                if (token == _serverCommand + "ROOMCLOSED")
+                    _networkManager.ReconnectToNameServer();
+            }
             else if (token.Contains(char.ToString(_clientCommand)))
             {
-//                StringBuilder sb = new StringBuilder(token);
-//                sb.Remove(0, 1);
-//                var commend = sb.ToString();
                 Debug.Log(token);
                 if (token == _clientCommand + "EOL")
                     _drawable.RemoteRelease();
@@ -116,4 +124,40 @@ public class ApplicationManager : MonoBehaviour
             }
         }
     }
+
+    public void ReceiveRoomData()
+    {
+        var msg = _networkManager.Receive();
+        if (msg == null) return;
+        msg = msg.TrimEnd('\0');
+        var tokens = msg.Split(_delimiter);
+        foreach (var token in tokens)
+        {
+            if (token == "") continue;
+            if (token.Contains(char.ToString(_serverCommand)))
+            {
+                if (token.Contains(_serverCommand + "ROOM-LIST"))
+                {
+                    var roomList = token.Split(_delimiter2).ToList();
+                    roomList.Remove(_serverCommand + "ROOM-LIST");
+                    roomList.Remove("");
+                    _scrollManager.AddItemsFromList(roomList);
+                }
+                else if (token == _serverCommand + "ENTER-ROOM")
+                {
+                }
+            }
+        }
+    }
+
+    public void GetRoomList()
+    {
+        _networkManager.Send(_serverCommand + "FIND-ROOM");
+    }
+
+    public void EnterRoom(string room, string pw)
+    {
+        Debug.Log(room + ":" + pw);
+    }
+
 }

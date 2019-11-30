@@ -338,9 +338,14 @@
           <e p="ApplicationManager.cs" t="Include" />
           <e p="Drawable.cs" t="Include" />
           <e p="DrawingSettings.cs" t="Include" />
+          <e p="Item.cs" t="Include" />
+          <e p="IView.cs" t="Include" />
           <e p="NetworkEventType.cs" t="Include" />
           <e p="NetworkManager.cs" t="Include" />
+          <e p="OverlayManager.cs" t="Include" />
           <e p="PacketInfo.cs" t="Include" />
+          <e p="Room.cs" t="Include" />
+          <e p="ScrollManager.cs" t="Include" />
           <e p="TcpManager.cs" t="Include" />
         </e>
       </e>
