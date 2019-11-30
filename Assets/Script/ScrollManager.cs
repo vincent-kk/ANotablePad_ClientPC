@@ -24,6 +24,7 @@ public class ScrollManager : MonoBehaviour
 
     private void InitScroll()
     {
+        if (_dictionary.Count > 0) ClearScrollBox();
         yOffset = itemOffsetY + interItem;
         nextItemPosition = new Vector2(interItem, -interItem + yOffset);
     }

@@ -25,12 +25,13 @@ public class ApplicationManager : MonoBehaviour
 
     private IView[] views;
 
-    private readonly Dictionary<string, int> _viewName = new Dictionary<string, int>(4)
+    private readonly Dictionary<string, int> _viewName = new Dictionary<string, int>(5)
     {
         {"connection", 0},
         {"menu", 1},
         {"room", 2},
-        {"draw", 3}
+        {"select", 3},
+        {"draw", 4}
     };
 
     private void Start()
@@ -38,17 +39,17 @@ public class ApplicationManager : MonoBehaviour
         views = new IView[viewObjects.Length];
         for (int i = 0; i < viewObjects.Length; i++)
             views[i] = viewObjects[i].GetComponent<IView>();
-        ChangeView("connection", "connection");
+//        ChangeView("connection");
     }
 
-    public void ChangeView(string view, string state)
+    public void ChangeView(string view)
     {
         var target = _viewName[view];
         for (var i = 0; i < views.Length; i++)
             views[i].ShowView(i == target);
 
-        _networkManager.ChangeState(state);
-//        StartDrawing(target == 3);
+        _networkManager.ChangeState(view);
+        StartDrawing(target == 4);
     }
 
     private void StartDrawing(bool start)
@@ -160,4 +161,15 @@ public class ApplicationManager : MonoBehaviour
         Debug.Log(room + ":" + pw);
     }
 
+    public void ExitApplication()
+    {
+
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                _networkManager.TcpDisconnect();
+        #endif
+
+        Application.Quit();
+    }
 }
