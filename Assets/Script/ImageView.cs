@@ -110,7 +110,7 @@ public class ImageView : MonoBehaviour, IView
 	/// <summary>
 	/// 리소스 정리
 	/// </summary>
-	public void Dispose()
+	private void Dispose()
 	{
 		loadedCount = 0;
 		currentCount = 0;
