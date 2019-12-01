@@ -35,6 +35,7 @@ public class NetworkManager : MonoBehaviour
         ROOM, //방에서 대기중
         SELECT, //방 선택
         DRAW, //실제로 그리는중
+        PAUSE, //데이터 패치 중지
         ERROR, // 오류.
     };
 
@@ -57,6 +58,7 @@ public class NetworkManager : MonoBehaviour
             case State.MENU:
                 break;
             case State.ROOM:
+                _applicationManager.ReceiveRoomData();
                 break;
             case State.SELECT:
                 _applicationManager.ReceiveRoomData();
@@ -64,6 +66,7 @@ public class NetworkManager : MonoBehaviour
             case State.DRAW:
                 _applicationManager.ReceiveDrawingData();
                 break;
+            case State.PAUSE:
             case State.ERROR:
                 break;
         }
@@ -78,7 +81,6 @@ public class NetworkManager : MonoBehaviour
         if (TcpConnection(_serverIp, _serverPort))
         {
             Send(_serverCommand + "Host-PC");
-            SwitchRoomServer();
         }
         else
         {
@@ -94,6 +96,8 @@ public class NetworkManager : MonoBehaviour
         var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
         if (recvSize > 0)
         {
+//            ResumeNetworkThread();
+//            Thread.Sleep(100);
             TcpDisconnect();
             var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
             var port = Convert.ToInt32(msg);
@@ -130,7 +134,7 @@ public class NetworkManager : MonoBehaviour
         serverIp.text = "";
         serverPort.text = "";
 
-//        if (TcpConnection(ip, port))
+//        if (TcpConnection(_serverIp, _serverPort))
 //        {
 //            Send(_serverCommand + "Host-PC");
 //            var returnData = new byte[64];
@@ -140,16 +144,9 @@ public class NetworkManager : MonoBehaviour
 //                var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
 //                if (msg.Equals(_serverCommand + "CONNECTION"))
 //                {
-//                    _applicationManager.ChangeView("draw","draw");
+//                    _applicationManager.ChangeView("draw");
+//                    return;
 //                }
-//                else
-//                {
-//                    ConsoleLogger("Fail To Connect Server");
-//                }
-//            }
-//            else
-//            {
-//                ConsoleLogger("Fail To Connect Server");
 //            }
 //        }
 
@@ -184,6 +181,16 @@ public class NetworkManager : MonoBehaviour
         _tcpManager.Disconnect();
     }
 
+    public void PauseNetworkThread()
+    {
+        _tcpManager.Pause();
+    }
+
+    public void ResumeNetworkThread()
+    {
+        _tcpManager.Resume();
+    }
+
     public void Send(string msg)
     {
         msg += _delimiter;
@@ -214,7 +221,7 @@ public class NetworkManager : MonoBehaviour
     {
         if (_tcpManager != null)
         {
-            _tcpManager.StopServer();
+            _tcpManager.Disconnect();
         }
     }
 
@@ -236,6 +243,9 @@ public class NetworkManager : MonoBehaviour
                 break;
             case "draw":
                 _state = State.DRAW;
+                break;
+            case "pause":
+                _state = State.PAUSE;
                 break;
             case "error":
             default:
@@ -269,6 +279,4 @@ public class NetworkManager : MonoBehaviour
                 break;
         }
     }
-
-
 }

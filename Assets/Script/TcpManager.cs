@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
@@ -42,6 +43,7 @@ public class TcpManager : MonoBehaviour
 
     private static int s_mtu = 1400;
 
+    ManualResetEvent m_pause = new ManualResetEvent(true);
 
     // Use this for initialization
     void Start()
@@ -51,61 +53,57 @@ public class TcpManager : MonoBehaviour
         m_recvQueue = new PacketQueue();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+/* //서버 기능 파트
     // 대기 시작.
     public bool StartServer(int port, int connectionNum)
     {
-        Debug.Log("StartServer called.!");
+      Debug.Log("StartServer called.!");
 
-        // 리스닝 소켓을 생성합니다.
-        try
-        {
-            // 소켓을 생성합니다.
-            m_listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            // 사용할 포트 번호를 할당합니다.
-            m_listener.Bind(new IPEndPoint(IPAddress.Any, port));
-            // 대기를 시작합니다.
-            m_listener.Listen(connectionNum);
-        }
-        catch
-        {
-            Debug.Log("StartServer fail");
-            return false;
-        }
+      // 리스닝 소켓을 생성합니다.
+      try
+      {
+          // 소켓을 생성합니다.
+          m_listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+          // 사용할 포트 번호를 할당합니다.
+          m_listener.Bind(new IPEndPoint(IPAddress.Any, port));
+          // 대기를 시작합니다.
+          m_listener.Listen(connectionNum);
+      }
+      catch
+      {
+          Debug.Log("StartServer fail");
+          return false;
+      }
 
-        m_isServer = true;
+      m_isServer = true;
 
-        return LaunchThread();
+      return LaunchThread();
     }
 
     // 대기 종료.
     public void StopServer()
     {
-        m_threadLoop = false;
-        if (m_thread != null)
-        {
-            m_thread.Join();
-            m_thread = null;
-        }
+      m_threadLoop = false;
+      if (m_thread != null)
+      {
+          m_thread.Join();
+          m_thread = null;
+      }
 
-        Disconnect();
+      Disconnect();
 
-        if (m_listener != null)
-        {
-            m_listener.Close();
-            m_listener = null;
-        }
+      if (m_listener != null)
+      {
+          m_listener.Close();
+          m_listener = null;
+      }
 
-        m_isServer = false;
+      m_isServer = false;
 
-        Debug.Log("Server stopped.");
+      Debug.Log("Server stopped.");
     }
 
+*/
 
     // 접속.
     public bool Connect(string address, int port)
@@ -199,6 +197,7 @@ public class TcpManager : MonoBehaviour
 
         return m_recvQueue.Dequeue(ref buffer, size);
     }
+
     public int BlockingReceive(ref byte[] buffer, int size)
     {
         return m_socket.Receive(buffer, size, SocketFlags.None);
@@ -242,9 +241,6 @@ public class TcpManager : MonoBehaviour
 
         while (m_threadLoop)
         {
-            // 클라이언트로부터의 접속을 기다립니다. 
-            AcceptClient();
-
             // 클라이언트와의 송수신을 처리합니다.
             if (m_socket != null && m_isConnected == true)
             {
@@ -336,5 +332,30 @@ public class TcpManager : MonoBehaviour
     public bool IsConnected()
     {
         return m_isConnected;
+    }
+
+    public void Pause()
+    {
+        try
+        {
+            m_thread.Suspend();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+        
+    }
+
+    public void Resume()
+    {
+        try                                                                  
+        {
+            m_thread.Resume();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 }

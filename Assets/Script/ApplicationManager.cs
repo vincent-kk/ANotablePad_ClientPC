@@ -13,9 +13,11 @@ public class ApplicationManager : MonoBehaviour
     [SerializeField] private DrawingSettings _drawingSettings;
     [SerializeField] private NetworkManager _networkManager;
     [SerializeField] private ScrollManager _scrollManager;
+    [SerializeField] private RoomView _roomView;
+
 
     private readonly char _delimiter = '|';
-    private readonly char _delimiter2 = '%';
+    private readonly char _delimiterUI = '%';
     private readonly char _clientCommand = '#';
     private readonly char _serverCommand = '@';
 
@@ -39,7 +41,7 @@ public class ApplicationManager : MonoBehaviour
         views = new IView[viewObjects.Length];
         for (int i = 0; i < viewObjects.Length; i++)
             views[i] = viewObjects[i].GetComponent<IView>();
-//        ChangeView("connection");
+        ChangeView("connection");
     }
 
     public void ChangeView(string view)
@@ -139,13 +141,26 @@ public class ApplicationManager : MonoBehaviour
             {
                 if (token.Contains(_serverCommand + "ROOM-LIST"))
                 {
-                    var roomList = token.Split(_delimiter2).ToList();
+                    var roomList = token.Split(_delimiterUI).ToList();
                     roomList.Remove(_serverCommand + "ROOM-LIST");
                     roomList.Remove("");
                     _scrollManager.AddItemsFromList(roomList);
                 }
+                else if (token.Contains(_serverCommand + "CREATE-ROOM"))
+                {
+                    var room = token.Split(_delimiterUI);
+                    _roomView.ReadyToStartDrawing(room[1]);
+                    Debug.Log(room[1] + " is Created Successfully!!");
+                }
+                else if (token == _serverCommand + "START-DRAWING")
+                {
+                    _networkManager.PauseNetworkThread();
+                    _networkManager.SwitchRoomServer();
+                }
                 else if (token == _serverCommand + "ENTER-ROOM")
                 {
+                    _networkManager.ChangeState("pause");
+                    _networkManager.SwitchRoomServer();
                 }
             }
         }
@@ -158,18 +173,22 @@ public class ApplicationManager : MonoBehaviour
 
     public void EnterRoom(string room, string pw)
     {
-        Debug.Log(room + ":" + pw);
+        _networkManager.Send(_serverCommand + "ENTER-ROOM" + _delimiterUI + room + _delimiterUI + pw);
     }
+
+    public void CreateRoom(string room, string pw)
+    {
+        _networkManager.Send(_serverCommand + "CREATE-ROOM" + _delimiterUI + room + _delimiterUI + pw);
+    }
+
 
     public void ExitApplication()
     {
-
         #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
         #else
-                _networkManager.TcpDisconnect();
+                        _networkManager.TcpDisconnect();
         #endif
-
         Application.Quit();
     }
 }
