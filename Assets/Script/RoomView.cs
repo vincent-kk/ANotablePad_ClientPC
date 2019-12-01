@@ -6,6 +6,7 @@ public class RoomView : MonoBehaviour, IView
 {
     [SerializeField] private InputField room;
     [SerializeField] private InputField pw;
+    [SerializeField] private Button connect;
     [SerializeField] private Text roomName;
     [SerializeField] private Text roomState;
     [SerializeField] private GameObject back;
@@ -20,6 +21,7 @@ public class RoomView : MonoBehaviour, IView
         pw.text = "";
         roomName.text = "";
         roomState.text = "";
+        connect.interactable = true;
         back.SetActive(true);
     }
 
@@ -30,7 +32,7 @@ public class RoomView : MonoBehaviour, IView
 
         room.text = "";
         pw.text = "";
-
+        connect.interactable = false;
         _applicationManager.CreateRoom(_roomName, _roomPassword);
     }
 
@@ -39,6 +41,7 @@ public class RoomView : MonoBehaviour, IView
         if (_roomName != createRoom)
         {
             roomState.text = "ROOM CREATE ERROR";
+            connect.interactable = true;
         }
         else
         {

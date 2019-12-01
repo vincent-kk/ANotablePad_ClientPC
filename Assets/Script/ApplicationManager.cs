@@ -44,6 +44,11 @@ public class ApplicationManager : MonoBehaviour
         ChangeView("connection");
     }
 
+    private void Awake()
+    {
+        Screen.SetResolution(1024, 768, false);
+    }
+
     public void ChangeView(string view)
     {
         var target = _viewName[view];
@@ -155,12 +160,12 @@ public class ApplicationManager : MonoBehaviour
                 else if (token == _serverCommand + "START-DRAWING")
                 {
                     _networkManager.PauseNetworkThread();
-                    _networkManager.SwitchRoomServer();
+                    _networkManager.SwitchRoomServer(true);
                 }
-                else if (token == _serverCommand + "ENTER-ROOM")
+                else if (token == _serverCommand + "GUEST-DRAWING")
                 {
-                    _networkManager.ChangeState("pause");
-                    _networkManager.SwitchRoomServer();
+                    _networkManager.PauseNetworkThread();
+                    _networkManager.SwitchRoomServer(false);
                 }
             }
         }
