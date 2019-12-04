@@ -3,89 +3,86 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace FreeDraw
+// Helper methods used to set drawing settings
+public class DrawingSettings : MonoBehaviour
 {
-    // Helper methods used to set drawing settings
-    public class DrawingSettings : MonoBehaviour
+    public static bool isCursorOverUI = false;
+    public float Transparency = 1f;
+
+    public int markerSize = 2;
+    public int eraserSize = 20;
+
+    // Changing pen settings is easy as changing the static properties Drawable.Pen_Colour and Drawable.Pen_Width
+    public void SetMarkerColour(Color new_color)
     {
-        public static bool isCursorOverUI = false;
-        public float Transparency = 1f;
+        Drawable.Pen_Colour = new_color;
+    }
 
-        public int markerSize = 2;
-        public int eraserSize = 20;
+    // new_width is radius in pixels
+    public void SetMarkerWidth(int new_width)
+    {
+        Drawable.Pen_Width = new_width;
+    }
 
-        // Changing pen settings is easy as changing the static properties Drawable.Pen_Colour and Drawable.Pen_Width
-        public void SetMarkerColour(Color new_color)
-        {
-            Drawable.Pen_Colour = new_color;
-        }
+    public void SetMarkerWidth(float new_width)
+    {
+        SetMarkerWidth((int) new_width);
+    }
 
-        // new_width is radius in pixels
-        public void SetMarkerWidth(int new_width)
-        {
-            Drawable.Pen_Width = new_width;
-        }
-
-        public void SetMarkerWidth(float new_width)
-        {
-            SetMarkerWidth((int) new_width);
-        }
-
-        public void SetTransparency(float amount)
-        {
-            Transparency = amount;
-            Color c = Drawable.Pen_Colour;
-            c.a = amount;
-            Drawable.Pen_Colour = c;
-        }
+    public void SetTransparency(float amount)
+    {
+        Transparency = amount;
+        Color c = Drawable.Pen_Colour;
+        c.a = amount;
+        Drawable.Pen_Colour = c;
+    }
 
 
-        // Call these these to change the pen settings
-        public void SetMarkerRed()
-        {
-            SetMarkerWidth(markerSize);
-            Color c = Color.red;
-            c.a = Transparency;
-            SetMarkerColour(c);
-            Drawable.drawable.SetPenBrush();
-        }
+    // Call these these to change the pen settings
+    public void SetMarkerRed()
+    {
+        SetMarkerWidth(markerSize);
+        Color c = Color.red;
+        c.a = Transparency;
+        SetMarkerColour(c);
+        Drawable.drawable.SetPenBrush();
+    }
 
-        public void SetMarkerGreen()
-        {
-            SetMarkerWidth(markerSize);
-            Color c = Color.green;
-            c.a = Transparency;
-            SetMarkerColour(c);
-            Drawable.drawable.SetPenBrush();
-        }
+    public void SetMarkerGreen()
+    {
+        SetMarkerWidth(markerSize);
+        Color c = Color.green;
+        c.a = Transparency;
+        SetMarkerColour(c);
+        Drawable.drawable.SetPenBrush();
+    }
 
-        public void SetMarkerBlue()
-        {
-            SetMarkerWidth(markerSize);
-            Color c = Color.blue;
-            c.a = Transparency;
-            SetMarkerColour(c);
-            Drawable.drawable.SetPenBrush();
-        }
+    public void SetMarkerBlue()
+    {
+        SetMarkerWidth(markerSize);
+        Color c = Color.blue;
+        c.a = Transparency;
+        SetMarkerColour(c);
+        Drawable.drawable.SetPenBrush();
+    }
 
-        public void SetMarkerBlack()
-        {
-            SetMarkerWidth(markerSize);
-            Color c = Color.black;
-            c.a = Transparency;
-            SetMarkerColour(c);
-            Drawable.drawable.SetPenBrush();
-        }
+    public void SetMarkerBlack()
+    {
+        SetMarkerWidth(markerSize);
+        Color c = Color.black;
+        c.a = Transparency;
+        SetMarkerColour(c);
+        Drawable.drawable.SetPenBrush();
+    }
 
-        public void SetEraser()
-        {
-            SetMarkerWidth(eraserSize);
-            SetMarkerColour(new Color(255f, 255f, 255f, 1f));
-        }
+    public void SetEraser()
+    {
+        SetMarkerWidth(eraserSize);
+        SetMarkerColour(new Color(255f, 255f, 255f, 1f));
+    }
 
-        public void PartialSetEraser()
-        {
-            SetMarkerColour(new Color(255f, 255f, 255f, 0.5f));
-        }
+    public void PartialSetEraser()
+    {
+        SetMarkerColour(new Color(255f, 255f, 255f, 0.5f));
     }
 }

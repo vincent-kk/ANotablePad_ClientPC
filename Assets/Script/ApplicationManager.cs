@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FreeDraw;
 using UnityEngine;
 
 public class ApplicationManager : MonoBehaviour
@@ -14,6 +13,8 @@ public class ApplicationManager : MonoBehaviour
     [SerializeField] private NetworkManager _networkManager;
     [SerializeField] private ScrollManager _scrollManager;
     [SerializeField] private RoomView _roomView;
+    [SerializeField] private WarningOverlayManager _warningOverlayManager;
+    [SerializeField] private DrawingCover _drawingCover;
 
     private IView[] views;
 
@@ -54,10 +55,19 @@ public class ApplicationManager : MonoBehaviour
         _drawable.SetNewDrawing(start);
     }
 
+    public void ShowWaringModal(string type)
+    {
+        _warningOverlayManager.ShowOverlay(type);
+    }
 
     public void SendCoordinateData(Vector2 data)
     {
         _networkManager.Send(data.ToString());
+    }
+
+    public void StartDrawing()
+    {
+        _drawingCover.StartDrawing();
     }
 
     public void ReceiveDrawingData()
@@ -75,24 +85,28 @@ public class ApplicationManager : MonoBehaviour
             if (token.Contains(char.ToString(AppData.ServerCommand)))
             {
                 if (token == CommendBook.ROOM_CLOSED)
+                {
+                    _warningOverlayManager.ShowOverlay("RoomServer-Closed");
+                    _drawingCover.StopDrawing();
                     _networkManager.ReconnectToNameServer();
+                }
             }
             else if (token.Contains(char.ToString(AppData.ClientCommand)))
             {
                 Debug.Log(token);
-                if (token == CommendBook.EndOnLineCommend)
+                if (token == CommendBook.END_OF_LINE)
                     _drawable.RemoteRelease();
-                else if (token == CommendBook.ColorCommend + "RED")
+                else if (token == CommendBook.COLOR_COMMEND + "RED")
                     _drawingSettings.SetMarkerRed();
-                else if (token == CommendBook.ColorCommend + "BLUE")
+                else if (token == CommendBook.COLOR_COMMEND + "BLUE")
                     _drawingSettings.SetMarkerBlue();
-                else if (token == CommendBook.ColorCommend + "GREEN")
+                else if (token == CommendBook.COLOR_COMMEND + "GREEN")
                     _drawingSettings.SetMarkerGreen();
-                else if (token == CommendBook.ColorCommend + "BLACK")
+                else if (token == CommendBook.COLOR_COMMEND + "BLACK")
                     _drawingSettings.SetMarkerBlack();
-                else if (token == CommendBook.ColorCommend + "ERASE")
+                else if (token == CommendBook.COLOR_COMMEND + "ERASE")
                     _drawingSettings.SetEraser();
-                else if (token == CommendBook.ClearBackgroundCommend)
+                else if (token == CommendBook.CLEAR_BACKGROUND_COMMEND)
                     _drawable.ResetCanvas();
             }
             else
@@ -136,11 +150,33 @@ public class ApplicationManager : MonoBehaviour
                 {
                     _networkManager.PauseNetworkThread();
                     _networkManager.SwitchRoomServer(true);
+
                 }
                 else if (token == CommendBook.GUEST_DRAWING)
                 {
                     _networkManager.PauseNetworkThread();
                     _networkManager.SwitchRoomServer(false);
+
+                }
+                else if (token == CommendBook.ERROR_MESSAGE)
+                {
+                    _warningOverlayManager.ShowOverlay("");
+                }
+                else if (token == CommendBook.COMMEND_ERROR)
+                {
+                    _warningOverlayManager.ShowOverlay("Invalid-Commend");
+                }
+                else if (token == CommendBook.ROOM_CREATE_ERROR)
+                {
+                    _warningOverlayManager.ShowOverlay("Already-RoomName");
+                }
+                else if (token == CommendBook.PASSWORD_ERROR)
+                {
+                    _warningOverlayManager.ShowOverlay("Wrong-Pw");
+                }
+                else if (token == CommendBook.NO_ROOM_ERROR)
+                {
+                    _warningOverlayManager.ShowOverlay("No-Room");
                 }
             }
         }

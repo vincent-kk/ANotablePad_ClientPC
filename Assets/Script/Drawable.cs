@@ -2,8 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace FreeDraw
-{
+
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(Collider2D))] // REQUIRES A COLLIDER2D to function
     // 1. Attach this to a read/write enabled sprite image
@@ -304,4 +303,3 @@ namespace FreeDraw
                 ResetCanvas();
         }
     }
-}

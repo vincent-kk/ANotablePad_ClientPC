@@ -30,10 +30,18 @@ public class RoomView : MonoBehaviour, IView
         _roomName = room.text;
         _roomPassword = pw.text;
 
-        room.text = "";
-        pw.text = "";
-        connect.interactable = false;
-        _applicationManager.CreateRoom(_roomName, _roomPassword);
+        if (AppData.RoomNameRegex.IsMatch(_roomName))
+        {
+            connect.interactable = false;
+            _applicationManager.CreateRoom(_roomName, _roomPassword);
+            room.text = "";
+            pw.text = "";
+        }
+        else
+        {
+            _applicationManager.ShowWaringModal("Invalid-Name");
+        }
+
     }
 
     public void ReadyToStartDrawing(string createRoom)

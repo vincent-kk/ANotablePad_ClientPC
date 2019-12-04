@@ -2,11 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e14b0c26-fba9-4dba-b4a0-e9e0effa7348" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ModalOverlay.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ModalOverlay.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Notepad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Notepad.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Notepad_v2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Notepad_v2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Room.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Room.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/DrawingCover.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/DrawingCover.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce/DrawingNotepad.renderTexture" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce/DrawingNotepad.renderTexture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Notepad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Notepad.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Notepad_v2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Notepad_v2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Room.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Room.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Drawable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Drawable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/RoomView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/RoomView.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,39 +43,45 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Script/TcpManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/Main.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/MenuView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/RoomView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderScriptEditor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/EditorPluginInterop.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/ConnectView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/SelectView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/ScrollManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Drawable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/ImageView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/NetworkManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/TcpManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Drawable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/OverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/MenuView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ScrollManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/DrawingCover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Room.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ImageView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/SelectView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderScriptEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApplicationData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/EditorPluginInterop.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/RoomView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ConnectView.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Script/Drawable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ImageView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ConnectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/MenuView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/SelectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ReadyView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ScrollManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/RoomView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/RoomView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Drawable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/DrawingPadCover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/DrawingCover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" />
       </list>
     </option>
   </component>
@@ -122,6 +153,7 @@
       <workItem from="1575195295989" duration="20968000" />
       <workItem from="1575446053400" duration="1372000" />
       <workItem from="1575447603971" duration="15000" />
+      <workItem from="1575462427285" duration="8121000" />
     </task>
     <servers />
   </component>

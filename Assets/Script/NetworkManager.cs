@@ -12,11 +12,8 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private InputField serverIp = null;
     [SerializeField] private InputField serverPort = null;
     [SerializeField] private ApplicationManager _applicationManager;
-
+    [SerializeField] private TcpManager _tcpManager;
     private byte[] _receiveBuffer;
-
-    private TcpManager _tcpManager = null;
-    private Encoding _encode;
 
     private static State _state = State.CONNECTION;
 
@@ -30,13 +27,6 @@ public class NetworkManager : MonoBehaviour
         PAUSE, //데이터 패치 중지
         ERROR, // 오류.
     };
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _tcpManager = gameObject.AddComponent<TcpManager>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -69,13 +59,13 @@ public class NetworkManager : MonoBehaviour
 
         if (TcpConnection(AppData.ServerIp, AppData.ServerPort))
         {
-            Send(AppData.ServerCommand + "Host-PC");
+            Send(AppData.ServerCommand + "PC");
             var returnData = new byte[64];
             var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
             if (recvSize > 0)
             {
                 var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
-                if (msg.Equals(AppData.ServerCommand + "CONNECTION"))
+                if (msg.Equals(CommendBook.CONNECTION))
                 {
                     _applicationManager.ChangeView("menu");
                     return;
@@ -84,6 +74,7 @@ public class NetworkManager : MonoBehaviour
         }
 
         TcpDisconnect();
+        _applicationManager.ShowWaringModal("Network-Disconnection");
         _applicationManager.ChangeView("connection");
         ConsoleLogger("Fail To Connect Server");
     }
@@ -105,14 +96,16 @@ public class NetworkManager : MonoBehaviour
                 if (recvSize > 0)
                 {
                     msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
-                    if (msg.Equals(AppData.ServerCommand + "CONNECTION"))
+                    if (msg.Equals(CommendBook.CONNECTION))
                     {
+                        _applicationManager.StartDrawing();
                         _applicationManager.ChangeView("draw");
                     }
                 }
                 else
                 {
                     TcpDisconnect();
+                    _applicationManager.ShowWaringModal("Network-Disconnection");
                     _applicationManager.ChangeView("connection");
                     ConsoleLogger("Fail To Connect Server");
                 }
@@ -122,39 +115,28 @@ public class NetworkManager : MonoBehaviour
 
     public void ConnectToServer()
     {
+        if (!AppData.IpRegex.IsMatch(serverIp.text))
+        {
+            _applicationManager.ShowWaringModal("Invalid-Ip");
+            return;
+        }
+
         AppData.ServerIp = serverIp.text;
         AppData.ServerPort = Convert.ToInt32(serverPort.text);
-
         Debug.Log("server : " + AppData.ServerIp + " : " + AppData.ServerPort);
 
         serverIp.text = "";
         serverPort.text = "";
 
-//        if (TcpConnection(_serverIp, _serverPort))
-//        {
-//            Send(_serverCommand + "Host-PC");
-//            var returnData = new byte[64];
-//            var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
-//            if (recvSize > 0)
-//            {
-//                var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
-//                if (msg.Equals(_serverCommand + "CONNECTION"))
-//                {
-//                    _applicationManager.ChangeView("draw");
-//                    return;
-//                }
-//            }
-//        }
-
         if (TcpConnection(AppData.ServerIp, AppData.ServerPort))
         {
-            Send(AppData.ServerCommand + "Host-PC");
+            Send(AppData.ServerCommand + "PC");
             var returnData = new byte[64];
             var recvSize = _tcpManager.BlockingReceive(ref returnData, returnData.Length);
             if (recvSize > 0)
             {
                 var msg = Encoding.UTF8.GetString(returnData).TrimEnd('\0');
-                if (msg.Equals(AppData.ServerCommand + "CONNECTION"))
+                if (msg.Equals(CommendBook.CONNECTION))
                 {
                     _applicationManager.ChangeView("menu");
                     return;
@@ -163,6 +145,7 @@ public class NetworkManager : MonoBehaviour
         }
 
         TcpDisconnect();
+        _applicationManager.ShowWaringModal("Network-Disconnection");
         _applicationManager.ChangeView("connection");
         ConsoleLogger("Fail To Connect Server");
     }
@@ -192,7 +175,6 @@ public class NetworkManager : MonoBehaviour
         msg += AppData.Delimiter;
         var buffer = System.Text.Encoding.UTF8.GetBytes(msg);
         _tcpManager.Send(buffer, buffer.Length);
-        ConsoleLogger(msg);
     }
 
     public string Receive()
