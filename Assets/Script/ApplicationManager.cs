@@ -15,16 +15,6 @@ public class ApplicationManager : MonoBehaviour
     [SerializeField] private ScrollManager _scrollManager;
     [SerializeField] private RoomView _roomView;
 
-
-    private readonly char _delimiter = '|';
-    private readonly char _delimiterUI = '%';
-    private readonly char _clientCommand = '#';
-    private readonly char _serverCommand = '@';
-
-
-    private readonly int resolutionX = 1080;
-    private readonly int resolutionY = 1920;
-
     private IView[] views;
 
     private readonly Dictionary<string, int> _viewName = new Dictionary<string, int>(5)
@@ -64,21 +54,6 @@ public class ApplicationManager : MonoBehaviour
         _drawable.SetNewDrawing(start);
     }
 
-    public char GetDelimiter()
-    {
-        return _delimiter;
-    }
-
-    public char GetClientCommand()
-    {
-        return _clientCommand;
-    }
-
-    public char GetServerCommand()
-    {
-        return _serverCommand;
-    }
-
 
     public void SendCoordinateData(Vector2 data)
     {
@@ -91,33 +66,33 @@ public class ApplicationManager : MonoBehaviour
         if (msg == null) return;
 
         msg = msg.TrimEnd('\0');
-        var tokens = msg.Split(_delimiter);
+        var tokens = msg.Split(AppData.Delimiter);
 
         foreach (var token in tokens)
         {
             if (token == "") continue;
 
-            if (token.Contains(char.ToString(_serverCommand)))
+            if (token.Contains(char.ToString(AppData.ServerCommand)))
             {
-                if (token == _serverCommand + "ROOMCLOSED")
+                if (token == CommendBook.ROOM_CLOSED)
                     _networkManager.ReconnectToNameServer();
             }
-            else if (token.Contains(char.ToString(_clientCommand)))
+            else if (token.Contains(char.ToString(AppData.ClientCommand)))
             {
                 Debug.Log(token);
-                if (token == _clientCommand + "EOL")
+                if (token == CommendBook.EndOnLineCommend)
                     _drawable.RemoteRelease();
-                else if (token == _clientCommand + "CC->RED")
+                else if (token == CommendBook.ColorCommend + "RED")
                     _drawingSettings.SetMarkerRed();
-                else if (token == _clientCommand + "CC->BLUE")
+                else if (token == CommendBook.ColorCommend + "BLUE")
                     _drawingSettings.SetMarkerBlue();
-                else if (token == _clientCommand + "CC->GREEN")
+                else if (token == CommendBook.ColorCommend + "GREEN")
                     _drawingSettings.SetMarkerGreen();
-                else if (token == _clientCommand + "CC->BLACK")
+                else if (token == CommendBook.ColorCommend + "BLACK")
                     _drawingSettings.SetMarkerBlack();
-                else if (token == _clientCommand + "CC->ERASE")
+                else if (token == CommendBook.ColorCommend + "ERASE")
                     _drawingSettings.SetEraser();
-                else if (token == _clientCommand + "BG->CLEAR")
+                else if (token == CommendBook.ClearBackgroundCommend)
                     _drawable.ResetCanvas();
             }
             else
@@ -138,31 +113,31 @@ public class ApplicationManager : MonoBehaviour
         var msg = _networkManager.Receive();
         if (msg == null) return;
         msg = msg.TrimEnd('\0');
-        var tokens = msg.Split(_delimiter);
+        var tokens = msg.Split(AppData.Delimiter);
         foreach (var token in tokens)
         {
             if (token == "") continue;
-            if (token.Contains(char.ToString(_serverCommand)))
+            if (token.Contains(char.ToString(AppData.ServerCommand)))
             {
-                if (token.Contains(_serverCommand + "ROOM-LIST"))
+                if (token.Contains(CommendBook.HEADER_ROOMLIST))
                 {
-                    var roomList = token.Split(_delimiterUI).ToList();
-                    roomList.Remove(_serverCommand + "ROOM-LIST");
+                    var roomList = token.Split(AppData.DelimiterUI).ToList();
+                    roomList.Remove(CommendBook.HEADER_ROOMLIST);
                     roomList.Remove("");
                     _scrollManager.AddItemsFromList(roomList);
                 }
-                else if (token.Contains(_serverCommand + "CREATE-ROOM"))
+                else if (token.Contains(CommendBook.CREATE_ROOM))
                 {
-                    var room = token.Split(_delimiterUI);
+                    var room = token.Split(AppData.DelimiterUI);
                     _roomView.ReadyToStartDrawing(room[1]);
                     Debug.Log(room[1] + " is Created Successfully!!");
                 }
-                else if (token == _serverCommand + "START-DRAWING")
+                else if (token == CommendBook.START_DRAWING)
                 {
                     _networkManager.PauseNetworkThread();
                     _networkManager.SwitchRoomServer(true);
                 }
-                else if (token == _serverCommand + "GUEST-DRAWING")
+                else if (token == CommendBook.GUEST_DRAWING)
                 {
                     _networkManager.PauseNetworkThread();
                     _networkManager.SwitchRoomServer(false);
@@ -173,27 +148,27 @@ public class ApplicationManager : MonoBehaviour
 
     public void GetRoomList()
     {
-        _networkManager.Send(_serverCommand + "FIND-ROOM");
+        _networkManager.Send(CommendBook.FIND_ROOM);
     }
 
     public void EnterRoom(string room, string pw)
     {
-        _networkManager.Send(_serverCommand + "ENTER-ROOM" + _delimiterUI + room + _delimiterUI + pw);
+        _networkManager.Send(CommendBook.ENTER_ROOM + AppData.DelimiterUI + room + AppData.DelimiterUI + pw);
     }
 
     public void CreateRoom(string room, string pw)
     {
-        _networkManager.Send(_serverCommand + "CREATE-ROOM" + _delimiterUI + room + _delimiterUI + pw);
+        _networkManager.Send(CommendBook.CREATE_ROOM + AppData.DelimiterUI + room + AppData.DelimiterUI + pw);
     }
 
 
     public void ExitApplication()
     {
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
                         _networkManager.TcpDisconnect();
-        #endif
+#endif
         Application.Quit();
     }
 }

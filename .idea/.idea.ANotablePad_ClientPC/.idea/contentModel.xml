@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Lunox\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Lunox\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ANotablePad_ClientPC.1403309282.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Lunox\UnityProjects\ANotablePad_ClientPC" t="IncludeRecursive">
+    <e p="C:\Users\Lunox\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ANotablePad_ClientPC.606920804.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Lunox\UnityProjects\Repasitory\ANotablePad_ClientPC" t="IncludeRecursive">
       <e p=".git\info\exclude" t="IncludeRecursive" />
       <e p="ANotablePad_ClientPC.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
@@ -358,6 +358,7 @@
           </e>
         </e>
         <e p="Script" t="Include">
+          <e p="ApplicationData.cs" t="Include" />
           <e p="ApplicationManager.cs" t="Include" />
           <e p="ConnectView.cs" t="Include" />
           <e p="Drawable.cs" t="Include" />
