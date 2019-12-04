@@ -78,6 +78,10 @@ public class WarningOverlayManager : MonoBehaviour
                 title.text = "Room Name in Use";
                 body.text = "The Room Name is already in use";
                 break;
+            case "Picture-Error":
+                title.text = "Picture File Error";
+                body.text = "Use only pictures that are jpg, png, or gif";
+                break;
             default:
                 title.text = "Waring";
                 body.text = "A fatal problem has occurred";

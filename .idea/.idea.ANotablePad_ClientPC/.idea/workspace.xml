@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e14b0c26-fba9-4dba-b4a0-e9e0effa7348" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ModalOverlay.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ModalOverlay.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Notepad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Notepad.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Notepad_v2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Notepad_v2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Room.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Room.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/DrawingCover.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/DrawingCover.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce/DrawingNotepad.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce/DrawingNotepad.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Notepad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Notepad.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Notepad_v2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Notepad_v2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Room.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resorce/Room.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Drawable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Drawable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/RoomView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/RoomView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ImageView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ImageView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +39,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Script/ImageView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ConnectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/MenuView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/SelectView.cs" />
@@ -74,7 +46,6 @@
         <option value="$PROJECT_DIR$/Assets/Script/ScrollManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/RoomView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Drawable.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" />
@@ -82,6 +53,8 @@
         <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/DrawingCover.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ImageView.cs" />
       </list>
     </option>
   </component>
@@ -122,10 +95,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="15136">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="10096">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15136" />
+      <option name="pid" value="10096" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -153,7 +126,7 @@
       <workItem from="1575195295989" duration="20968000" />
       <workItem from="1575446053400" duration="1372000" />
       <workItem from="1575447603971" duration="15000" />
-      <workItem from="1575462427285" duration="8121000" />
+      <workItem from="1575462427285" duration="9537000" />
     </task>
     <servers />
   </component>
@@ -186,6 +159,32 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/ImageView.cs</url>
+          <line>115</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Script/ImageView.cs" initialLine="115">
+            <startOffsets>
+              <option value="2915" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2961" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/ImageView.cs</url>
+          <line>116</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Script/ImageView.cs" initialLine="116">
+            <startOffsets>
+              <option value="2974" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3059" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
