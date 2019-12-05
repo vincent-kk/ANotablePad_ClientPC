@@ -35,11 +35,10 @@ using UnityEngine.EventSystems;
         public bool Reset_Canvas_On_Play = true;
 
         // The colour the canvas is reset to each time
-        public Color Reset_Colour = new Color(0, 0, 0, 0); // By default, reset the canvas to be transparent
+        public Color Reset_Colour = new Color(0.94f, 0.94f, 0.973f, 1); // By default, reset the canvas to be transparent
 
         // Used to reference THIS specific file without making all methods static
         public static Drawable drawable;
-
         // MUST HAVE READ/WRITE enabled set in the file editor of Unity
         Sprite drawable_sprite;
         Texture2D drawable_texture;
@@ -251,7 +250,10 @@ using UnityEngine.EventSystems;
         public void SetNewDrawing(bool drawing)
         {
             if (_nowDrawing != drawing) ResetCanvas();
-            this._nowDrawing = drawing;
+            this._nowDrawing = drawing; 
+
+            Pen_Colour = Color.black;
+            Pen_Width = 2;
         }
 
         private void RemoteDraw(Vector2 pixel_pos)

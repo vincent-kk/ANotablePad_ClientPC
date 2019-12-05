@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class RoomView : MonoBehaviour, IView
@@ -14,6 +13,7 @@ public class RoomView : MonoBehaviour, IView
 
     private string _roomName;
     private string _roomPassword;
+
     public void ShowView(bool show)
     {
         this.gameObject.SetActive(show);
@@ -29,19 +29,18 @@ public class RoomView : MonoBehaviour, IView
     {
         _roomName = room.text;
         _roomPassword = pw.text;
-
-        if (AppData.RoomNameRegex.IsMatch(_roomName))
+        if (_roomName.Length > 0 && _roomPassword.Length > 0)
         {
-            connect.interactable = false;
-            _applicationManager.CreateRoom(_roomName, _roomPassword);
-            room.text = "";
-            pw.text = "";
+            if (AppData.RoomNameRegex.IsMatch(_roomName))
+            {
+                connect.interactable = false;
+                _applicationManager.CreateRoom(_roomName, _roomPassword);
+                room.text = "";
+                pw.text = "";
+                return;
+            }
         }
-        else
-        {
-            _applicationManager.ShowWaringModal("Invalid-Name");
-        }
-
+        _applicationManager.ShowWaringModal("Invalid-Name");
     }
 
     public void ReadyToStartDrawing(string createRoom)

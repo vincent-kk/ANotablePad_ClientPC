@@ -11,9 +11,8 @@ public class ImageView : MonoBehaviour, IView
     /// 이미지 패널
     /// </summary>
     [SerializeField] private Image imagePanel;
-
     [SerializeField] private ApplicationManager _applicationManager;
-
+    [SerializeField] private Sprite defaultImage;
     /// <summary>
     /// 로드된 이미지 리스트
     /// </summary>
@@ -135,7 +134,7 @@ public class ImageView : MonoBehaviour, IView
         loadedCount = 0;
         currentCount = 0;
 
-        imagePanel.sprite = null;
+        imagePanel.sprite = defaultImage;
 
         loadedImageList.Clear();
     }

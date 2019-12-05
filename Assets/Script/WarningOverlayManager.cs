@@ -13,8 +13,8 @@ public class WarningOverlayManager : MonoBehaviour
     [SerializeField] private Button overlayButton;
 
 
-    private readonly Color _disableColor = new Color(0, 0, 0, 0);
-    private readonly Color _activeColor = new Color(0, 0, 0, 0.45f);
+//    private readonly Color _disableColor = new Color(0, 0, 0, 0);
+//    private readonly Color _activeColor = new Color(0, 0, 0, 0.45f);
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class WarningOverlayManager : MonoBehaviour
 
     private void ShowOverlayElements(bool forShow)
     {
-        overlayAlpha.color = forShow ? _activeColor : _disableColor;
+//        overlayAlpha.color = forShow ? _activeColor : _disableColor;
 
         modal.SetActive(forShow);
         overlayAlpha.raycastTarget = forShow;
@@ -56,7 +56,7 @@ public class WarningOverlayManager : MonoBehaviour
                 break;
             case "Invalid-Ip":
                 title.text = "Invalid IP";
-                body.text = "IP has the following format:\n[0,255].[0,255].[0,255].[0,255]";
+                body.text = "IP has the following format:\n255.255.255.255";
                 break;
             case "Network-Disconnection":
                 title.text = "Disconnection";

@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: -75, y: 0}
+  m_SizeDelta: {x: -250, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7559916993916232136
 CanvasRenderer:
@@ -70,7 +70,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 200
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7cdc2ccf6978d0949b091aa9582a69ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -219,5 +219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9117a5bf34bb0fe4d8d151562de73eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 7559916994110504926}
+  background: {fileID: 7559916994110504920}
   nameTag: {fileID: 7559916993916232137}
+  roomBGI:
+  - {fileID: 21300000, guid: 7cdc2ccf6978d0949b091aa9582a69ce, type: 3}
+  - {fileID: 21300000, guid: 0fc41b2918ffd4b4083d72d07146d864, type: 3}
+  - {fileID: 21300000, guid: 81dbc5ceb031b844eaad7bd553e39547, type: 3}
+  - {fileID: 21300000, guid: 7003efb26b02b2f42b6c96fa9e8d2392, type: 3}
+  - {fileID: 21300000, guid: 9389f5e1aa0e22741896a73ed5bef592, type: 3}
+  - {fileID: 21300000, guid: ab69ca9d4566942449bf113a7f1cac61, type: 3}

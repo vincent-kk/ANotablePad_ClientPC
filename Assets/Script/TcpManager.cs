@@ -49,58 +49,6 @@ public class TcpManager : MonoBehaviour
         _recvQueue = new PacketQueue();
     }
 
-/* //서버 기능 파트
-    // 대기 시작.
-    public bool StartServer(int port, int connectionNum)
-    {
-      Debug.Log("StartServer called.!");
-
-      // 리스닝 소켓을 생성합니다.
-      try
-      {
-          // 소켓을 생성합니다.
-          _listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-          // 사용할 포트 번호를 할당합니다.
-          _listener.Bind(new IPEndPoint(IPAddress.Any, port));
-          // 대기를 시작합니다.
-          _listener.Listen(connectionNum);
-      }
-      catch
-      {
-          Debug.Log("StartServer fail");
-          return false;
-      }
-
-      _isServer = true;
-
-      return LaunchThread();
-    }
-
-    // 대기 종료.
-    public void StopServer()
-    {
-      _threadLoop = false;
-      if (_thread != null)
-      {
-          _thread.Join();
-          _thread = null;
-      }
-
-      Disconnect();
-
-      if (_listener != null)
-      {
-          _listener.Close();
-          _listener = null;
-      }
-
-      _isServer = false;
-
-      Debug.Log("Server stopped.");
-    }
-
-*/
-
     // 접속.
     public bool Connect(string address, int port)
     {
@@ -153,10 +101,11 @@ public class TcpManager : MonoBehaviour
     public void Disconnect()
     {
         _isConnected = false;
-
+        _threadLoop = false;
         if (_socket != null)
         {
             // 소켓 클로즈.
+//            _thread.Join();
             _socket.Shutdown(SocketShutdown.Both);
             _socket.Close();
             _socket = null;

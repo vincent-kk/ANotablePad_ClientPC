@@ -2,9 +2,99 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e14b0c26-fba9-4dba-b4a0-e9e0effa7348" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/DrawingNote.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/DrawingNote.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/JOURNAL.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/JOURNAL.TTF.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/ampersand.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/ampersand.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/angelina.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/angelina.TTF.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Background.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Modal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Modal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Modal2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Modal2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Note.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Note.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_1r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_1r.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_2r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_2r.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_3r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_3r.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_4r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_4r.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_5r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_5r.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_6r.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_6r.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/folders.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/folders.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/icon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/left-arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/left-arrow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/media.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/media.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/right-arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/right-arrow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/undo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/undo.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Room.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Room.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Drawable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Drawable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/ImageView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ImageView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Room.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/RoomView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/RoomView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp-firstpass.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp-firstpass.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.Timeline.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/level0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets.resS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets.resS" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,16 +113,21 @@
     <setting file="file://$PROJECT_DIR$/Assets/Script/Drawable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/OverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/NetworkEventType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://D:/Operation Cluster/Unity/2019.2.11f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/MenuView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://D:/Operation Cluster/Unity/2019.2.11f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ScrollManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/DrawingCover.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Room.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ImageView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/SelectView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CD14385-55E6-4C0E-AEDA-2393D3C9CF4A/8f/e51c37c5/UnityEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderScriptEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApplicationData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/EditorPluginInterop.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CD14385-55E6-4C0E-AEDA-2393D3C9CF4A/17/571888d1/InvokableCall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/RoomView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ConnectView.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -44,17 +139,19 @@
         <option value="$PROJECT_DIR$/Assets/Script/SelectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ReadyView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ScrollManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/RoomView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Drawable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/DrawingPadCover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/DrawingCover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/RoomView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Room.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ImageView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Drawable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
       </list>
     </option>
   </component>
@@ -95,10 +192,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="10096">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="3224">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="10096" />
+      <option name="pid" value="3224" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -126,7 +223,8 @@
       <workItem from="1575195295989" duration="20968000" />
       <workItem from="1575446053400" duration="1372000" />
       <workItem from="1575447603971" duration="15000" />
-      <workItem from="1575462427285" duration="9537000" />
+      <workItem from="1575462427285" duration="10139000" />
+      <workItem from="1575555340204" duration="9829000" />
     </task>
     <servers />
   </component>
@@ -159,32 +257,6 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Script/ImageView.cs</url>
-          <line>115</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Script/ImageView.cs" initialLine="115">
-            <startOffsets>
-              <option value="2915" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2961" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Script/ImageView.cs</url>
-          <line>116</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Script/ImageView.cs" initialLine="116">
-            <startOffsets>
-              <option value="2974" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3059" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

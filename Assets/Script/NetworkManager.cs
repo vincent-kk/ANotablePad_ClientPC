@@ -184,6 +184,7 @@ public class NetworkManager : MonoBehaviour
         if (recvSize > 0)
         {
             var msg = System.Text.Encoding.UTF8.GetString(returnData);
+            ConsoleLogger(msg);
             return msg;
         }
 

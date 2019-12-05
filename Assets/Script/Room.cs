@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class Room : MonoBehaviour, Item
 {
-    [SerializeField] private GameObject background;
+    [SerializeField] private Image background;
     [SerializeField] private Text nameTag;
+    [SerializeField] private Sprite[] roomBGI;
     private OverlayManager _overlayManager;
-
     private string _name;
 
     public void SetItemData(string name)
     {
+        int num = Random.Range(0, 6);
+        background.sprite = roomBGI[num];
         _name = name;
         nameTag.text = name;
     }

@@ -37,7 +37,7 @@ public class ApplicationManager : MonoBehaviour
 
     private void Awake()
     {
-        Screen.SetResolution(1024, 768, false);
+        Screen.SetResolution(1040, 715, false);
     }
 
     public void ChangeView(string view)
@@ -133,6 +133,7 @@ public class ApplicationManager : MonoBehaviour
             if (token == "") continue;
             if (token.Contains(char.ToString(AppData.ServerCommand)))
             {
+                Debug.Log(token);
                 if (token.Contains(CommendBook.HEADER_ROOMLIST))
                 {
                     var roomList = token.Split(AppData.DelimiterUI).ToList();
@@ -200,11 +201,11 @@ public class ApplicationManager : MonoBehaviour
 
     public void ExitApplication()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-                        _networkManager.TcpDisconnect();
-#endif
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            _networkManager.TcpDisconnect();
+            Application.Quit();
+        #endif
     }
 }

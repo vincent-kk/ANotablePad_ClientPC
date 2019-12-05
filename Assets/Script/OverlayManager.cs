@@ -15,8 +15,8 @@ public class OverlayManager : MonoBehaviour
 
     [SerializeField] private ApplicationManager _applicationManager;
 
-    private readonly Color _disableColor = new Color(0, 0, 0, 0);
-    private readonly Color _activeColor = new Color(0, 0, 0, 0.45f);
+//    private readonly Color _disableColor = new Color(0, 0, 0, 0);
+//    private readonly Color _activeColor = new Color(0, 0, 0, 0.45f);
 
     private string _roomName;
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class OverlayManager : MonoBehaviour
 
     private void ShowOverlayElements(bool forShow)
     {
-        overlayAlpha.color = forShow ? _activeColor : _disableColor;
+//        overlayAlpha.color = forShow ? _activeColor : _disableColor;
 
         modal.SetActive(forShow);
         overlayAlpha.raycastTarget = forShow;

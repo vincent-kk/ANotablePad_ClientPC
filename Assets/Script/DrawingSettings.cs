@@ -8,7 +8,7 @@ public class DrawingSettings : MonoBehaviour
 {
     public static bool isCursorOverUI = false;
     public float Transparency = 1f;
-
+    public Color Reset_Colour = new Color(0.94f, 0.94f, 0.973f, 1);
     public int markerSize = 2;
     public int eraserSize = 20;
 
@@ -78,11 +78,11 @@ public class DrawingSettings : MonoBehaviour
     public void SetEraser()
     {
         SetMarkerWidth(eraserSize);
-        SetMarkerColour(new Color(255f, 255f, 255f, 1f));
+        SetMarkerColour(Reset_Colour);
     }
 
     public void PartialSetEraser()
     {
-        SetMarkerColour(new Color(255f, 255f, 255f, 0.5f));
+        SetMarkerColour(Reset_Colour);
     }
 }

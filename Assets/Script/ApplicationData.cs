@@ -20,7 +20,7 @@ public class AppData
             @"^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$");
 
     private static readonly Regex roomNameRegex =
-        new Regex(@"^([^" + Delimiter + DelimiterUI + ClientCommand + ServerCommand + "]*)$");
+        new Regex(@"^([^" + Delimiter + DelimiterUI + ClientCommand + ServerCommand + " " + "]*)$");
 
     public static char Delimiter => delimiter;
     public static char DelimiterUI => delimiterUI;
@@ -54,7 +54,7 @@ public static class CommendBook
     private static readonly string enterRoom = AppData.ServerCommand + "ENTER-ROOM";
     private static readonly string startDrawing = AppData.ServerCommand + "START-DRAWING";
     private static readonly string guestDrawing = AppData.ServerCommand + "GUEST-DRAWING";
-    private static readonly string errorMessage = AppData.ServerCommand + "ERROR";
+    private static readonly string errorMessage = AppData.ServerCommand + "ERROR" + AppData.DelimiterUI;
     private static readonly string roomListHeader = AppData.ServerCommand + "ROOM-LIST";
     private static readonly string roomClosed = AppData.ServerCommand + "ROOMCLOSED";
     private static readonly string colorCommend = AppData.ClientCommand + AppData.ColorCommand;
