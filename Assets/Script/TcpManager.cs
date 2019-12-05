@@ -41,12 +41,15 @@ public class TcpManager : MonoBehaviour
 
     protected Thread _thread = null;
 
+    protected Thread _garbagecollector;
+
     // Use this for initialization
     void Start()
     {
         // 송수신 버퍼를 작성합니다.
         _sendQueue = new PacketQueue();
         _recvQueue = new PacketQueue();
+        _garbagecollector = new Thread(new ThreadStart(Observing));
     }
 
     // 접속.
@@ -118,6 +121,15 @@ public class TcpManager : MonoBehaviour
             state.type = NetEventType.Disconnect;
             state.result = NetEventResult.Success;
             _handler(state);
+        }
+    }
+
+    private void Observing()
+    {
+        while (true)
+        {
+            if (_thread != null) _thread.Join();
+            else Thread.Sleep(1000);
         }
     }
 
@@ -289,12 +301,11 @@ public class TcpManager : MonoBehaviour
         {
             Debug.Log(e.Message);
         }
-        
     }
 
     public void Resume()
     {
-        try                                                                  
+        try
         {
             _thread.Resume();
         }

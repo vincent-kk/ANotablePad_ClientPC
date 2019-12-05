@@ -2,99 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e14b0c26-fba9-4dba-b4a0-e9e0effa7348" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/DrawingNote.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/DrawingNote.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/JOURNAL.TTF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/JOURNAL.TTF.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/ampersand.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/ampersand.ttf.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/angelina.TTF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/angelina.TTF.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Background.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Button_6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Modal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Modal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Modal2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Modal2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Note.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Note.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_1r.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_1r.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_2r.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_2r.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_3r.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_3r.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_4r.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_4r.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_5r.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_5r.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_6r.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Room_6r.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/folders.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/folders.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/icon.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/left-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/left-arrow.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/media.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/media.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/right-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/right-arrow.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/undo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/undo.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Room.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Room.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Drawable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Drawable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ImageView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ImageView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Room.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/RoomView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/RoomView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp-firstpass.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp-firstpass.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.Timeline.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets.resS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets.resS" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +133,7 @@
       <workItem from="1575446053400" duration="1372000" />
       <workItem from="1575447603971" duration="15000" />
       <workItem from="1575462427285" duration="10139000" />
-      <workItem from="1575555340204" duration="9829000" />
+      <workItem from="1575555340204" duration="10887000" />
     </task>
     <servers />
   </component>
