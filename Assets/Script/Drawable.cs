@@ -269,9 +269,7 @@ using UnityEngine.EventSystems;
 
         public void ReceiveCoordinateData(Vector2 data)
         {
-            Debug.Log(data.ToString());
             RemoteDraw(data);
-
         }
 
         public void RemoteRelease()

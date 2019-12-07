@@ -57,6 +57,7 @@ public static class CommendBook
     private static readonly string errorMessage = AppData.ServerCommand + "ERROR" + AppData.DelimiterUI;
     private static readonly string roomListHeader = AppData.ServerCommand + "ROOM-LIST";
     private static readonly string roomClosed = AppData.ServerCommand + "ROOMCLOSED";
+    private static readonly string drawingRoomIsFull = AppData.ServerCommand + "ROOM-IS-FULL";
     private static readonly string colorCommend = AppData.ClientCommand + AppData.ColorCommand;
     private static readonly string clearBackgroundCommend = AppData.ClientCommand + AppData.BackgroundClearCommand;
     private static readonly string endOfLine = AppData.ClientCommand + AppData.EndOfLine;
@@ -82,4 +83,5 @@ public static class CommendBook
     public static string ROOM_CREATE_ERROR => roomCreateError;
     public static string PASSWORD_ERROR => passwordError;
     public static string NO_ROOM_ERROR => noRoomError;
+    public static string DRAWING_ROOM_FULL => drawingRoomIsFull;
 }

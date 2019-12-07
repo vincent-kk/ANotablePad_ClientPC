@@ -3,7 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="e14b0c26-fba9-4dba-b4a0-e9e0effa7348" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Drawable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Drawable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp-firstpass.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp-firstpass.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.Timeline.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/level0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/resources.assets.resS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/sharedassets0.assets.resS" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,30 +34,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0FB38736-02AD-4F16-A30D-E8CE8E1A6F6D/ee/26ac3946/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/Main.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/NetworkManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/TcpManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Drawable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/OverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/NetworkEventType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://D:/Operation Cluster/Unity/2019.2.11f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/MenuView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://D:/Operation Cluster/Unity/2019.2.11f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/ScrollManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/DrawingCover.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Room.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/ImageView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/SelectView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CD14385-55E6-4C0E-AEDA-2393D3C9CF4A/8f/e51c37c5/UnityEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderScriptEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApplicationData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/EditorPluginInterop.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CD14385-55E6-4C0E-AEDA-2393D3C9CF4A/17/571888d1/InvokableCall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/RoomView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ConnectView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/OverlayManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://D:/Operation Cluster/Unity/2019.2.11f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/567DF3E0-9192-41BA-98DB-88BEC4C6696F/1f/1ebe29aa/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/MenuView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://D:/Operation Cluster/Unity/2019.2.11f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ScrollManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Room.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ImageView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/SelectView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CD14385-55E6-4C0E-AEDA-2393D3C9CF4A/8f/e51c37c5/UnityEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CD14385-55E6-4C0E-AEDA-2393D3C9CF4A/17/571888d1/InvokableCall.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -53,14 +74,14 @@
         <option value="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/RoomView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Room.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ImageView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Drawable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" />
       </list>
     </option>
   </component>
@@ -101,10 +122,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="3224">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="15840">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="3224" />
+      <option name="pid" value="15840" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -134,6 +155,8 @@
       <workItem from="1575447603971" duration="15000" />
       <workItem from="1575462427285" duration="10139000" />
       <workItem from="1575555340204" duration="11354000" />
+      <workItem from="1575695204342" duration="10137000" />
+      <workItem from="1575716798482" duration="8761000" />
     </task>
     <servers />
   </component>
