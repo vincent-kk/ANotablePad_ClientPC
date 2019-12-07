@@ -82,6 +82,14 @@ public class WarningOverlayManager : MonoBehaviour
                 title.text = "Picture File Error";
                 body.text = "Use only pictures that are jpg, png, or gif";
                 break;
+            case "Full-Room":
+                title.text = "Room is Full!";
+                body.text = "Drawing Room is Full...";
+                break;
+            case "Server-Not-Found":
+                title.text = "Server Not Found";
+                body.text = "Can't Find Name Server";
+                break;
             default:
                 title.text = "Waring";
                 body.text = "A fatal problem has occurred";

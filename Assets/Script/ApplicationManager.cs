@@ -37,7 +37,7 @@ public class ApplicationManager : MonoBehaviour
 
     private void Awake()
     {
-        Screen.SetResolution(1040, 715, false);
+        Screen.SetResolution(16*50, 11*50, false);
     }
 
     public void ChangeView(string view)
@@ -93,21 +93,41 @@ public class ApplicationManager : MonoBehaviour
             }
             else if (token.Contains(char.ToString(AppData.ClientCommand)))
             {
-                Debug.Log(token);
                 if (token == CommendBook.END_OF_LINE)
+                {
                     _drawable.RemoteRelease();
+                    continue;
+                }
                 else if (token == CommendBook.COLOR_COMMEND + "RED")
+                {
                     _drawingSettings.SetMarkerRed();
+                    continue;
+                }
                 else if (token == CommendBook.COLOR_COMMEND + "BLUE")
+                {
                     _drawingSettings.SetMarkerBlue();
+                    continue;
+                }
                 else if (token == CommendBook.COLOR_COMMEND + "GREEN")
+                {
                     _drawingSettings.SetMarkerGreen();
+                    continue;
+                }
                 else if (token == CommendBook.COLOR_COMMEND + "BLACK")
+                {
                     _drawingSettings.SetMarkerBlack();
+                    continue;
+                }
                 else if (token == CommendBook.COLOR_COMMEND + "ERASE")
+                {
                     _drawingSettings.SetEraser();
+                    continue;
+                }
                 else if (token == CommendBook.CLEAR_BACKGROUND_COMMEND)
+                {
                     _drawable.ResetCanvas();
+                    continue;
+                }
             }
             else
             {
@@ -133,51 +153,57 @@ public class ApplicationManager : MonoBehaviour
             if (token == "") continue;
             if (token.Contains(char.ToString(AppData.ServerCommand)))
             {
-                Debug.Log(token);
                 if (token.Contains(CommendBook.HEADER_ROOMLIST))
                 {
                     var roomList = token.Split(AppData.DelimiterUI).ToList();
                     roomList.Remove(CommendBook.HEADER_ROOMLIST);
                     roomList.Remove("");
                     _scrollManager.AddItemsFromList(roomList);
+                    continue;
                 }
                 else if (token.Contains(CommendBook.CREATE_ROOM))
                 {
                     var room = token.Split(AppData.DelimiterUI);
                     _roomView.ReadyToStartDrawing(room[1]);
                     Debug.Log(room[1] + " is Created Successfully!!");
+                    continue;
                 }
                 else if (token == CommendBook.START_DRAWING)
                 {
                     _networkManager.PauseNetworkThread();
                     _networkManager.SwitchRoomServer(true);
-
+                    continue;
                 }
                 else if (token == CommendBook.GUEST_DRAWING)
                 {
                     _networkManager.PauseNetworkThread();
                     _networkManager.SwitchRoomServer(false);
-
+                    continue;
                 }
                 else if (token == CommendBook.ERROR_MESSAGE)
                 {
                     _warningOverlayManager.ShowOverlay("");
+                    continue;
                 }
                 else if (token == CommendBook.COMMEND_ERROR)
                 {
                     _warningOverlayManager.ShowOverlay("Invalid-Commend");
+                    continue;
                 }
                 else if (token == CommendBook.ROOM_CREATE_ERROR)
                 {
                     _warningOverlayManager.ShowOverlay("Already-RoomName");
+                    continue;
                 }
                 else if (token == CommendBook.PASSWORD_ERROR)
                 {
                     _warningOverlayManager.ShowOverlay("Wrong-Pw");
+                    continue;
                 }
                 else if (token == CommendBook.NO_ROOM_ERROR)
                 {
                     _warningOverlayManager.ShowOverlay("No-Room");
+                    continue;
                 }
             }
         }
@@ -201,11 +227,11 @@ public class ApplicationManager : MonoBehaviour
 
     public void ExitApplication()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            _networkManager.TcpDisconnect();
-            Application.Quit();
-        #endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            _networkManager.TcpDisconnect(true);
+#endif
+        Application.Quit();
     }
 }

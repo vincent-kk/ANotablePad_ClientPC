@@ -2,14 +2,15 @@ using System;
 using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 
 public class TcpManager : MonoBehaviour
 {
-    private Socket _listener = null;
-
     // 클라이언트와의 접속용 소켓.
     private Socket _socket = null;
+
+    public Socket Sock => _socket;
 
     // 송신 버퍼.
     private PacketQueue _sendQueue;
@@ -17,18 +18,17 @@ public class TcpManager : MonoBehaviour
     // 수신 버퍼.
     private PacketQueue _recvQueue;
 
-    // 서버 플래그.	
-    private bool _isServer = false;
-
     // 접속 플래그.
     private bool _isConnected = false;
+
+    public bool isConnected => _isConnected;
 
     //
     // 이벤트 관련 멤버 변수.
     //
 
     // 이벤트 통지 델리게이트.
-    public delegate void EventHandler(NetEventState state);
+    public delegate void EventHandler();
 
     private EventHandler _handler;
 
@@ -37,11 +37,11 @@ public class TcpManager : MonoBehaviour
     //
 
     // 스레스 실행 플래그.
-    protected bool _threadLoop = false;
+    private bool _threadLoop = false;
 
-    protected Thread _thread = null;
+    private Thread _thread = null;
 
-    protected Thread _garbagecollector;
+    private Thread _garbagecollector;
 
     // Use this for initialization
     void Start()
@@ -56,11 +56,6 @@ public class TcpManager : MonoBehaviour
     public bool Connect(string address, int port)
     {
         Debug.Log("TransportTCP connect called.");
-
-        if (_listener != null)
-        {
-            return false;
-        }
 
         bool ret = false;
         try
@@ -87,41 +82,31 @@ public class TcpManager : MonoBehaviour
             Debug.Log("Connect fail");
         }
 
-        if (_handler != null)
-        {
-            // 접속 결과를 통지합니다. 
-            NetEventState state = new NetEventState();
-            state.type = NetEventType.Connect;
-            state.result = (_isConnected == true) ? NetEventResult.Success : NetEventResult.Failure;
-            _handler(state);
-            Debug.Log("event handler called");
-        }
-
         return _isConnected;
     }
 
     // 끊기.
-    public void Disconnect()
+    public void Disconnect(bool switchServer)
     {
+        if (_socket == null) return;
         _isConnected = false;
         _threadLoop = false;
-        if (_socket != null)
+        // 소켓 클로즈.
+        try
         {
-            // 소켓 클로즈.
-//            _thread.Join();
             _socket.Shutdown(SocketShutdown.Both);
+        }
+        catch (SocketException)
+        {
+            Debug.Log("Server Disconnection");
+        }
+        finally
+        {
             _socket.Close();
             _socket = null;
         }
 
-        // 끊기를 통지합니다.
-        if (_handler != null)
-        {
-            NetEventState state = new NetEventState();
-            state.type = NetEventType.Disconnect;
-            state.result = NetEventResult.Success;
-            _handler(state);
-        }
+        if (!switchServer) _handler?.Invoke();
     }
 
     private void Observing()
@@ -203,7 +188,6 @@ public class TcpManager : MonoBehaviour
             {
                 // 송신처리.
                 DispatchSend();
-
                 // 수신처리.
                 DispatchReceive();
             }
@@ -212,18 +196,6 @@ public class TcpManager : MonoBehaviour
         }
 
         Debug.Log("Dispatch thread ended.");
-    }
-
-    // 클라이언트와의 접속.
-    void AcceptClient()
-    {
-        if (_listener != null && _listener.Poll(0, SelectMode.SelectRead))
-        {
-            // 클라이언트에서 접속했습니다.
-            _socket = _listener.Accept();
-            _isConnected = true;
-            Debug.Log("Connected from client.");
-        }
     }
 
     // 스레드 측 송신처리 .
@@ -265,7 +237,7 @@ public class TcpManager : MonoBehaviour
                 {
                     // 끊기.
                     Debug.Log("Disconnect recv from Server.");
-                    Disconnect();
+                    Disconnect(false);
                 }
                 else if (recvSize > 0)
                 {
@@ -278,19 +250,6 @@ public class TcpManager : MonoBehaviour
             return;
         }
     }
-
-    // 서버인지 확인.
-    public bool IsServer()
-    {
-        return _isServer;
-    }
-
-    // 접속확인.
-    public bool IsConnected()
-    {
-        return _isConnected;
-    }
-
     public void Pause()
     {
         try
