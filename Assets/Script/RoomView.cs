@@ -40,6 +40,7 @@ public class RoomView : MonoBehaviour, IView
                 return;
             }
         }
+        connect.interactable = true;
         _applicationManager.ShowWaringModal("Invalid-Name");
     }
 
