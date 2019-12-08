@@ -368,7 +368,6 @@
           <e p="Item.cs" t="Include" />
           <e p="IView.cs" t="Include" />
           <e p="MenuView.cs" t="Include" />
-          <e p="NetworkEventType.cs" t="Include" />
           <e p="NetworkManager.cs" t="Include" />
           <e p="OverlayManager.cs" t="Include" />
           <e p="PacketInfo.cs" t="Include" />

@@ -5,6 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using SimpleFileBrowser;
 
+/// <summary>
+/// 그림을 그릴때 좌측에 존재하는 패널의 기능을 정의한다.
+/// 현재는 단순히 그림을 불러오는 기능 외에는 구현되지 않았다.
+/// </summary>
+
 public class ImageView : MonoBehaviour, IView
 {
     /// <summary>

@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Room List에 등장하는 방 하나하나에 적용되는 클래스.
+/// 방을 눌렀을 때의 동작 등을 설정한다.
+/// </summary>
 public class Room : MonoBehaviour, Item
 {
     [SerializeField] private Image background;

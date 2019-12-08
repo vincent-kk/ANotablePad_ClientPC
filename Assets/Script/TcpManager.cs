@@ -1,15 +1,12 @@
 using System;
 using UnityEngine;
-using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 
 public class TcpManager : MonoBehaviour
 {
     // 클라이언트와의 접속용 소켓.
     private Socket _socket = null;
-
     public Socket Sock => _socket;
 
     // 송신 버퍼.
@@ -23,20 +20,11 @@ public class TcpManager : MonoBehaviour
 
     public bool isConnected => _isConnected;
 
-    //
-    // 이벤트 관련 멤버 변수.
-    //
-
     // 이벤트 통지 델리게이트.
     public delegate void EventHandler();
 
     private EventHandler _handler;
 
-    //
-    // 스레드 관련 멤버 변수.
-    //
-
-    // 스레스 실행 플래그.
     private bool _threadLoop = false;
 
     private Thread _thread = null;

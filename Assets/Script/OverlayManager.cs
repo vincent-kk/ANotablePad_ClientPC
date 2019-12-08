@@ -1,22 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 방에 입장할때 등장하는 모달을 정의한다.
+/// 오버레이 매니저는 Disable되지 않고 이벤트를 통지받아서 모달을 생성한다.
+/// </summary>
 public class OverlayManager : MonoBehaviour
 {
     [SerializeField] private GameObject modal;
     [SerializeField] private Text roomNameField;
     [SerializeField] private InputField password;
-
     [SerializeField] private ScrollRect blockBoxScroll;
     [SerializeField] private Image overlayAlpha;
     [SerializeField] private Button overlayButton;
-
     [SerializeField] private ApplicationManager _applicationManager;
-
-//    private readonly Color _disableColor = new Color(0, 0, 0, 0);
-//    private readonly Color _activeColor = new Color(0, 0, 0, 0.45f);
 
     private string _roomName;
     // Start is called before the first frame update
@@ -39,8 +36,6 @@ public class OverlayManager : MonoBehaviour
 
     private void ShowOverlayElements(bool forShow)
     {
-//        overlayAlpha.color = forShow ? _activeColor : _disableColor;
-
         modal.SetActive(forShow);
         overlayAlpha.raycastTarget = forShow;
         overlayButton.interactable = forShow;

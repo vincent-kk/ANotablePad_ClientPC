@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 
+/// <summary>
+/// 어플리케이션의 모든 기능을 총괄하는 부분.
+/// UI를 비롯해서 대부분의 기능을 실행하기 위한 컨트롤러 역할을 한다.
+/// </summary>
 public class ApplicationManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] viewObjects;
@@ -39,7 +40,11 @@ public class ApplicationManager : MonoBehaviour
     {
         Screen.SetResolution(16*50, 11*50, false);
     }
-
+    /// <summary>
+    /// 어플리케이션에서 뷰의 변경을 총괄한다.
+    /// 모든 뷰는 해당 매소드를 통해서 변경된다.
+    /// </summary>
+    /// <param name="view"></param>
     public void ChangeView(string view)
     {
         var target = _viewName[view];
@@ -49,27 +54,35 @@ public class ApplicationManager : MonoBehaviour
         _networkManager.ChangeState(view);
         StartDrawing(target == 4);
     }
-
+    /// <summary>
+    /// 그림을 그리기 시작하도록 설정.
+    /// </summary>
+    /// <param name="start"></param>
     private void StartDrawing(bool start)
     {
         _drawable.SetNewDrawing(start);
     }
-
+    /// <summary>
+    /// 사용자에게 메시지를 통지하는 모달을 띄운다.
+    /// 모달의 내용은 WarningOverlayManager에 정의되어 있다.
+    /// </summary>
+    /// <param name="type"></param>
     public void ShowWaringModal(string type)
     {
         _warningOverlayManager.ShowOverlay(type);
     }
-
-    public void SendCoordinateData(Vector2 data)
-    {
-        _networkManager.Send(data.ToString());
-    }
-
+    /// <summary>
+    /// 그림을 그리기 시작하도록 설정한다.
+    /// </summary>
     public void StartDrawing()
     {
         _drawingCover.StartDrawing();
     }
 
+    /// <summary>
+    /// 그림을 그리기 위한 데이터를 수신한다.
+    /// 추가적으로 Drawing Room에 존재할 때 처리해야 하는 모든 동작을 포함한다.
+    /// </summary>
     public void ReceiveDrawingData()
     {
         var msg = _networkManager.Receive();
@@ -141,7 +154,9 @@ public class ApplicationManager : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// 프로그램이 Name Server에서 처리해야 하는 모든 동작과 명령을 포함한다.
+    /// </summary>
     public void ReceiveRoomData()
     {
         var msg = _networkManager.Receive();
@@ -208,17 +223,27 @@ public class ApplicationManager : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// 방의 리스트를 요청한다.
+    /// </summary>
     public void GetRoomList()
     {
         _networkManager.Send(CommendBook.FIND_ROOM);
     }
-
+    /// <summary>
+    /// 방에 접속을 시도한다.
+    /// </summary>
+    /// <param name="room"></param>
+    /// <param name="pw"></param>
     public void EnterRoom(string room, string pw)
     {
         _networkManager.Send(CommendBook.ENTER_ROOM + AppData.DelimiterUI + room + AppData.DelimiterUI + pw);
     }
-
+    /// <summary>
+    /// 방 생성을 시도한다.
+    /// </summary>
+    /// <param name="room"></param>
+    /// <param name="pw"></param>
     public void CreateRoom(string room, string pw)
     {
         _networkManager.Send(CommendBook.CREATE_ROOM + AppData.DelimiterUI + room + AppData.DelimiterUI + pw);
@@ -227,11 +252,11 @@ public class ApplicationManager : MonoBehaviour
 
     public void ExitApplication()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
             _networkManager.TcpDisconnect(true);
-#endif
+        #endif
         Application.Quit();
     }
 }

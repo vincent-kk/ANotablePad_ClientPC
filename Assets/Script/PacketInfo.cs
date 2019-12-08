@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+/// <summary>
+/// TcpManager에서 사용하는 소켓의 추가 버퍼.
+/// 실제 Send와 Receive를 하지 않고 버퍼에 저장하여 실시간성을 확보.
+/// </summary>
 public class PacketQueue
 {
-    // 패킷 저장 정보.
     struct PacketInfo
     {
         public int offset;
@@ -35,10 +37,7 @@ public class PacketQueue
 
         lock (lockObj)
         {
-            // 패킷 저장 정보를 보존.
             m_offsetList.Add(info);
-
-            // 패킷 데이터를 보존.
             m_streamBuffer.Position = m_offset;
             m_streamBuffer.Write(data, 0, size);
             m_streamBuffer.Flush();
@@ -59,19 +58,13 @@ public class PacketQueue
         lock (lockObj)
         {
             PacketInfo info = m_offsetList[0];
-
-            // 버퍼로부터 해당하는 패킷 데이터를 가져옵니다.
             int dataSize = Math.Min(size, info.size);
             m_streamBuffer.Position = info.offset;
             recvSize = m_streamBuffer.Read(buffer, 0, dataSize);
-
-            // 큐 데이터를 꺼냈으므로 선두 요소 삭제.
             if (recvSize > 0)
             {
                 m_offsetList.RemoveAt(0);
             }
-
-            // 모든 큐 데이터를 꺼냈을 때는 스트림을 클리어해서 메모리를 절약합니다.
             if (m_offsetList.Count == 0)
             {
                 Clear();
@@ -81,8 +74,6 @@ public class PacketQueue
 
         return recvSize;
     }
-
-    // Clear Queue
     public void Clear()
     {
         byte[] buffer = m_streamBuffer.GetBuffer();

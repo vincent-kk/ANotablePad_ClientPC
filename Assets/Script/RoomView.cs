@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 방을 생성하는 View의 기능을 정의한 클래스
+/// </summary>
 public class RoomView : MonoBehaviour, IView
 {
     [SerializeField] private InputField room;
@@ -25,6 +28,9 @@ public class RoomView : MonoBehaviour, IView
         back.SetActive(true);
     }
 
+    /// <summary>
+    /// 방에 대한 정보를 입력받으면 간단한 유효성 검증을 실시하고 방의 생성 정보를 전송한다.
+    /// </summary>
     public void TryToCreateRoom()
     {
         _roomName = room.text;
@@ -44,6 +50,10 @@ public class RoomView : MonoBehaviour, IView
         _applicationManager.ShowWaringModal("Invalid-Name");
     }
 
+    /// <summary>
+    /// 방이 생성되면 Wait상태를 유지하기 위해 사용자의 입력을 제한한다.
+    /// </summary>
+    /// <param name="createRoom"></param>
     public void ReadyToStartDrawing(string createRoom)
     {
         if (_roomName != createRoom)

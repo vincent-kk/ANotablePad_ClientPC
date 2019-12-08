@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * UGUI 스크롤을 사용하는 경우에 자동으로 아이템을 추가하는 스크립트.
- * item프리팹을 전달받아서 이를 복사하여 생성한다.
- * 인스팩터에서 아이템의 오프셋과 자질구래한 것들을 설정해 주어야 한다.
- */
+/// <summary>
+/// UGUI 스크롤을 사용하는 경우에 자동으로 아이템을 추가하는 스크립트.
+/// item프리팹을 전달받아서 이를 복사하여 생성한다.
+/// 인스팩터에서 아이템의 오프셋과 자질구래한 것들을 설정해 주어야 한다.
+/// </summary>
+/// 
 public class ScrollManager : MonoBehaviour
 {
     [SerializeField] private GameObject item;

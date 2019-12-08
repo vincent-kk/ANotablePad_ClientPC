@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+
+/// <summary>
+/// Drawable과 함께 Free Draw Asset의 일부. 그림을 그리는 것에 필요한 설정을 정의한다.
+/// </summary>
 
 // Helper methods used to set drawing settings
 public class DrawingSettings : MonoBehaviour

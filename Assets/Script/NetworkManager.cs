@@ -3,7 +3,11 @@ using System.Text;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// 어플리케이션에서 사용하는 모든 네트워크 기능을 총괄하는 클래스
+/// TcpManager를 사용하여 서버에 접속, 서버 전환, 재접속 등 네트워크 연결에 대한 모든 기능을 담당한다.
+/// 또한 매 Update마다 데이터를 패치하는 기능도 담당한다.
+/// </summary>
 public class NetworkManager : MonoBehaviour
 {
     [SerializeField] private InputField serverIp = null;
@@ -13,7 +17,10 @@ public class NetworkManager : MonoBehaviour
     private byte[] _receiveBuffer;
 
     private static State _state = State.CONNECTION;
-
+    /// <summary>
+    /// 어플리케이션에 존재하는 네트워크의 상태.
+    /// 상태에 따라 다른 기능을 요구한다.
+    /// </summary>
     enum State
     {
         CONNECTION, // 연결 준비
@@ -54,7 +61,10 @@ public class NetworkManager : MonoBehaviour
                 break;
         }
     }
-
+    /// <summary>
+    /// NameServer의 정보를 이용하여 다시 접속을 시도한다.
+    /// Room에서 이탈할때 자동으로 호출되어 Name Server로 돌아가게 한다.
+    /// </summary>
     public void ReconnectToNameServer()
     {
         TcpDisconnect(true);
@@ -79,6 +89,12 @@ public class NetworkManager : MonoBehaviour
         TcpDisconnect(false);
     }
 
+    /// <summary>
+    /// Name Server에서 Room Server로 전환하는 매소드
+    /// Host인지 Guest인지에 따라서 약간의 차이를 보이지만 기본적인 기능은 동일하다.
+    /// 접속에 성공하면 Drawing을 시작한다.
+    /// </summary>
+    /// <param name="host"></param>
     public void SwitchRoomServer(bool host)
     {
         var returnData = new byte[64];
@@ -115,6 +131,10 @@ public class NetworkManager : MonoBehaviour
         TcpDisconnect(false);
     }
 
+    /// <summary>
+    /// 최초에 Name Server에 접속을 시도하는 클래스.
+    /// 기본적인 유효성 검증을 하며 접속에 성공하면 Name Server의 정보를 저장하여 이후 재접속이 가능하게 한다.
+    /// </summary>
     public void ConnectToServer()
     {
         if (!AppData.IpRegex.IsMatch(serverIp.text))
@@ -149,34 +169,54 @@ public class NetworkManager : MonoBehaviour
         _applicationManager.ShowWaringModal("Server-Not-Found");
         TcpDisconnect(false);
     }
-
+    /// <summary>
+    /// TcpManager를 사용하여 실제로 접속을 시도한다.
+    /// TcpManager에 대한 일종의 캡슐화
+    /// </summary>
+    /// <param name="serverIp"></param>
+    /// <param name="port"></param>
+    /// <returns></returns>
     private bool TcpConnection(string serverIp, int port)
     {
         return _tcpManager.Connect(serverIp, port);
     }
-
+    /// <summary>
+    /// TcpManager에 접속 종료를 통지한다.
+    /// TcpManager에 대한 일종의 캡슐화
+    /// </summary>
+    /// <param name="switchServer"></param>
     public void TcpDisconnect(bool switchServer)
     {
         _tcpManager.Disconnect(switchServer);
     }
-
+    /// <summary>
+    /// Dispatch Thread를 일시 정지한다.
+    /// </summary>
     public void PauseNetworkThread()
     {
         _tcpManager.Pause();
     }
-
+    /// <summary>
+    /// Dispatch Thread를 재개한다.
+    /// </summary>
     public void ResumeNetworkThread()
     {
         _tcpManager.Resume();
     }
-
+    /// <summary>
+    /// 메시지를 받아서 송신을 시도한다.
+    /// </summary>
+    /// <param name="msg"></param>
     public void Send(string msg)
     {
         msg += AppData.Delimiter;
         var buffer = System.Text.Encoding.UTF8.GetBytes(msg);
         _tcpManager.Send(buffer, buffer.Length);
     }
-
+    /// <summary>
+    /// 메시지의 수신을 시도한다.
+    /// </summary>
+    /// <returns></returns>
     public string Receive()
     {
         var returnData = new byte[AppData.BufferSize];
@@ -194,7 +234,10 @@ public class NetworkManager : MonoBehaviour
     {
         Debug.Log(log);
     }
-
+    /// <summary>
+    /// 네트워크의 상태를 변경한다.
+    /// </summary>
+    /// <param name="state"></param>
     public void ChangeState(string state)
     {
         switch (state)
@@ -223,7 +266,9 @@ public class NetworkManager : MonoBehaviour
                 break;
         }
     }
-
+    /// <summary>
+    /// 어플리케이션이 종료될때 실행되어 소켓의 연결을 끊는다.
+    /// </summary>
     private void OnApplicationQuit()
     {
         if (_tcpManager != null)
@@ -231,7 +276,9 @@ public class NetworkManager : MonoBehaviour
             _tcpManager.Disconnect(false);
         }
     }
-
+    /// <summary>
+    /// True Disconnection에서 호출되는 델리게이트 함수
+    /// </summary>
     private void OnServerDisconnectedEvent()
     {
         _applicationManager.ShowWaringModal("Network-Disconnection");

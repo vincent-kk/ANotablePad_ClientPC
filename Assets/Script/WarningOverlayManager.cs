@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 사용자에게 보여지는 각종 경고창을 정의한다.
+/// 창의 내용은 미리 정의된 지시어에 따라서 자동으로 생성된다.
+/// </summary>
 public class WarningOverlayManager : MonoBehaviour
 {
     [SerializeField] private GameObject modal;
@@ -11,10 +13,6 @@ public class WarningOverlayManager : MonoBehaviour
 
     [SerializeField] private Image overlayAlpha;
     [SerializeField] private Button overlayButton;
-
-
-//    private readonly Color _disableColor = new Color(0, 0, 0, 0);
-//    private readonly Color _activeColor = new Color(0, 0, 0, 0.45f);
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +33,6 @@ public class WarningOverlayManager : MonoBehaviour
 
     private void ShowOverlayElements(bool forShow)
     {
-//        overlayAlpha.color = forShow ? _activeColor : _disableColor;
-
         modal.SetActive(forShow);
         overlayAlpha.raycastTarget = forShow;
         overlayButton.interactable = forShow;

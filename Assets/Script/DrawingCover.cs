@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+/// <summary>
+/// 그림을 그리는 화면을 전환하는 클래스
+/// </summary>
 public class DrawingCover : MonoBehaviour
 {
     private void Start()

@@ -1,5 +1,8 @@
 ﻿using System.Text.RegularExpressions;
-
+/// <summary>
+/// 프로그램에서 전반적으로 사용되는 명령어와 문자를 정리한 클래스
+/// 명령어가 변경될 때 이 부분만 변경하면 되도도록 한 곳으로 모아두었다.
+/// </summary>
 public class AppData
 {
     private static readonly char delimiter = '|';
