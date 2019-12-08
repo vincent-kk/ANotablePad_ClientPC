@@ -2,40 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e14b0c26-fba9-4dba-b4a0-e9e0effa7348" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/StreamingAssets/Images/img_3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ANotablePad_ClientPC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ApplicationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ConnectView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ConnectView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Drawable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Drawable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DrawingCover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DrawingCover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/DrawingSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/IView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/IView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ImageView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ImageView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/MenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/MenuView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkEventType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkEventType.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/OverlayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PacketInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PacketInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Room.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/RoomView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/RoomView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ScrollManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ScrollManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/SelectView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/SelectView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/TcpManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp-firstpass.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp-firstpass.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/Unity.Timeline.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/StreamingAssets/Images/img_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/StreamingAssets/Images/img_2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/StreamingAssets/Images/lx-profile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/StreamingAssets/Images/mesBack.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/ANotablePad_ClientPC_Data/level0" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,9 +66,9 @@
         <option value="$PROJECT_DIR$/Assets/Script/RoomView.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ScrollManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/SelectView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/WarningOverlayManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/NetworkEventType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TcpManager.cs" />
       </list>
     </option>
   </component>
@@ -176,7 +144,7 @@
       <workItem from="1575555340204" duration="11354000" />
       <workItem from="1575695204342" duration="10137000" />
       <workItem from="1575716798482" duration="13136000" />
-      <workItem from="1575816455220" duration="3018000" />
+      <workItem from="1575816455220" duration="3374000" />
     </task>
     <servers />
   </component>
